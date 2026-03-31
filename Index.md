@@ -2,6 +2,17 @@
 
 Random inspiration from the public domain canon.
 
+```dataviewjs
+const base = dv.current().file.folder;
+const lib = await dv.io.load(base + "/Lib/literary.js");
+const LitGen = new Function(lib + "; return LitGen;")();
+await LitGen.buildIndexUI(dv, base);
+```
+
+---
+
+## Browse Sources
+
 | Generator | Source | Items |
 |-----------|--------|-------|
 | [Bible (KJV)](Bible.md) | King James Version | 31,102 verses |

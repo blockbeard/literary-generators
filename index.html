@@ -219,6 +219,21 @@
 
     .copy-all-btn.visible { display: inline-block; }
 
+    .quote-hero {
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      border-left: 4px solid var(--accent);
+      background: var(--bg-surface);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .quote-controls {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
     .note {
       margin-top: 40px;
       padding-top: 20px;
@@ -249,6 +264,16 @@
         Download for Obsidian
       </a>
     </header>
+
+    <!-- RANDOM QUOTE -->
+    <div class="quote-hero" id="quote-hero">
+      <div id="quote-results"></div>
+      <div class="quote-controls">
+        <button class="generate-btn" id="quote-reload">New Quote</button>
+        <button class="generate-btn" id="quote-each" style="background:var(--bg-surface);color:var(--text);border-color:var(--border)">One of Each</button>
+        <button class="copy-all-btn" id="quote-copyall">Copy All</button>
+      </div>
+    </div>
 
     <div class="tabs">
       <button class="tab active" data-tab="bible">Bible</button>
@@ -322,7 +347,7 @@
 
     <div class="note">
       <p>All texts are public domain. This project is <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 licensed</a>.</p>
-      <p>This is for humans. Read the words, let them spark something. Don't feed them to a machine.</p>
+      <p>Human words to inspire humans.</p>
       <p><a href="https://github.com/blockbeard/literary-generators">Download the Obsidian vault</a> for offline use with linked source texts.</p>
     </div>
   </div>

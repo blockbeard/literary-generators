@@ -87,6 +87,9 @@
       quote.textContent = item.text;
       row.appendChild(quote);
 
+      // Track current expand level for copy button coordination
+      let currentLevel = -1;
+
       // Expand
       if (item.expand && item.expand.length > 0) {
         const expandArea = document.createElement("div");
@@ -95,17 +98,23 @@
         const expandContent = document.createElement("div");
         expandContent.className = "expand-content";
 
+        const expandCopyBtn = document.createElement("button");
+        expandCopyBtn.className = "copy-btn expand-copy-btn";
+        expandCopyBtn.style.display = "none";
+        expandCopyBtn.style.marginTop = "4px";
+
         const expandBtn = document.createElement("button");
         expandBtn.className = "expand-btn";
         expandBtn.textContent = "\u25b8 " + item.expand[0].label;
-
-        let currentLevel = -1;
 
         expandBtn.addEventListener("click", () => {
           currentLevel++;
           if (currentLevel < item.expand.length) {
             expandContent.classList.add("visible");
             expandContent.textContent = item.expand[currentLevel].text;
+            // Show copy button for expanded content
+            expandCopyBtn.style.display = "inline-block";
+            expandCopyBtn.textContent = "Copy " + item.expand[currentLevel].label.toLowerCase();
             if (currentLevel + 1 < item.expand.length) {
               expandBtn.textContent = "\u25b8 " + item.expand[currentLevel + 1].label;
             } else {
@@ -113,13 +122,24 @@
             }
           } else {
             expandContent.classList.remove("visible");
+            expandCopyBtn.style.display = "none";
             currentLevel = -1;
             expandBtn.textContent = "\u25b8 " + item.expand[0].label;
           }
         });
 
+        expandCopyBtn.addEventListener("click", () => {
+          if (currentLevel >= 0 && currentLevel < item.expand.length) {
+            const text = item.expand[currentLevel].text + "\n" + item.ref;
+            navigator.clipboard.writeText(text);
+            const label = expandCopyBtn.textContent;
+            flashButton(expandCopyBtn, "Copied!", label);
+          }
+        });
+
         expandArea.appendChild(expandBtn);
         expandArea.appendChild(expandContent);
+        expandArea.appendChild(expandCopyBtn);
         row.appendChild(expandArea);
       }
 
@@ -134,11 +154,11 @@
 
       const copyBtn = document.createElement("button");
       copyBtn.className = "copy-btn";
-      copyBtn.textContent = "Copy";
+      copyBtn.textContent = "Copy line";
       const copyText = item.text + "\n" + item.ref;
       copyBtn.addEventListener("click", () => {
         navigator.clipboard.writeText(copyText);
-        flashButton(copyBtn, "Copied!", "Copy");
+        flashButton(copyBtn, "Copied!", "Copy line");
       });
       attrRow.appendChild(copyBtn);
 
@@ -276,7 +296,7 @@
         return {
           text: line,
           ref: ref,
-          expand: [{ label: "Full speech", text: speech.lines.join("\n") }]
+          expand: [{ label: "Full speech", text: ref + "\n\n" + speech.lines.join("\n") }]
         };
       }
 
@@ -294,7 +314,7 @@
       if (containingStanza && containingStanza.length < sonnet.lines.length) {
         expand.push({ label: "Stanza", text: containingStanza.join("\n") });
       }
-      expand.push({ label: "Full sonnet", text: sonnet.lines.join("\n") });
+      expand.push({ label: "Full sonnet", text: ref + "\n\n" + sonnet.stanzas.map(s => s.join("\n")).join("\n\n") });
 
       return { text: line, ref: ref, expand: expand };
 
@@ -315,7 +335,8 @@
         expand.push({ label: "Stanza", text: containingStanza.join("\n") });
       }
       if (allLines.length > 1) {
-        expand.push({ label: "Full passage", text: allLines.join("\n") });
+        const body = allStanzas.length > 0 ? allStanzas.map(s => s.join("\n")).join("\n\n") : allLines.join("\n");
+        expand.push({ label: "Full passage", text: title + "\nby William Shakespeare\n\n" + body });
       }
 
       return { text: line, ref: ref, expand: expand };
@@ -364,7 +385,8 @@
             expand.push({ label: "Stanza", text: containingStanza.join("\n") });
           }
           if (poem.lines.length > 1) {
-            expand.push({ label: "Full poem", text: poem.lines.join("\n") });
+            const body = (poem.stanzas && poem.stanzas.length > 0) ? poem.stanzas.map(s => s.join("\n")).join("\n\n") : poem.lines.join("\n");
+            expand.push({ label: "Full poem", text: poem.title + "\nby " + authorData.author + "\n\n" + body });
           }
 
           items.push({ text: line, ref: ref, expand: expand });
@@ -377,10 +399,98 @@
   }
 
   // =====================================================================
+  // STANDALONE PICK FUNCTIONS (for quote hero)
+  // =====================================================================
+
+  async function pickRandomBible() {
+    const index = await loadJSON(`${DATA_BASE}/Bible/index.json`);
+    const bookInfo = weightedPick(index.books, b => b.verses);
+    const bookData = await loadJSON(`${DATA_BASE}/Bible/${bookInfo.file}`);
+    const ch = weightedPick(bookData.chapters, c => c.verses.length);
+    const verse = pick(ch.verses);
+    return {
+      text: verse.t,
+      ref: `${bookInfo.name} ${ch.chapter}:${verse.v}`
+    };
+  }
+
+  async function pickRandomShakespeare() {
+    const index = await loadJSON(`${DATA_BASE}/Shakespeare/index.json`);
+    const workInfo = weightedPick(index.works, w => w.lines);
+    const workData = await loadJSON(`${DATA_BASE}/Shakespeare/${workInfo.file}`);
+    return pickShakespeare(workData);
+  }
+
+  async function pickRandomPoetry() {
+    const index = await loadJSON(`${DATA_BASE}/Poetry/index.json`);
+    const authorInfo = weightedPick(index.authors, a => a.lines);
+    const authorData = await loadJSON(`${DATA_BASE}/Poetry/${authorInfo.file}`);
+    const poem = pick(authorData.poems);
+    if (!poem.lines || poem.lines.length === 0) return pickRandomPoetry();
+
+    const line = pick(poem.lines);
+    const ref = `\u2014 ${authorData.author}, \u201c${poem.title}\u201d`;
+
+    let containingStanza = null;
+    for (const st of (poem.stanzas || [])) {
+      if (st.includes(line)) { containingStanza = st; break; }
+    }
+
+    const expand = [];
+    if (containingStanza && containingStanza.length < poem.lines.length) {
+      expand.push({ label: "Stanza", text: containingStanza.join("\n") });
+    }
+    if (poem.lines.length > 1) {
+      const body = (poem.stanzas && poem.stanzas.length > 0) ? poem.stanzas.map(s => s.join("\n")).join("\n\n") : poem.lines.join("\n");
+      expand.push({ label: "Full poem", text: poem.title + "\nby " + authorData.author + "\n\n" + body });
+    }
+
+    return { text: line, ref: ref, expand: expand };
+  }
+
+  // =====================================================================
+  // QUOTE HERO — random quote + one of each
+  // =====================================================================
+
+  async function loadRandomQuote() {
+    const resultsDiv = $("quote-results");
+    const copyAllBtn = $("quote-copyall");
+    try {
+      const source = pick(["bible", "shakespeare", "poetry"]);
+      let item;
+      if (source === "bible") item = await pickRandomBible();
+      else if (source === "shakespeare") item = await pickRandomShakespeare();
+      else item = await pickRandomPoetry();
+      renderResults(resultsDiv, copyAllBtn, [item]);
+    } catch (e) {
+      resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
+    }
+  }
+
+  async function loadOneOfEach() {
+    const resultsDiv = $("quote-results");
+    const copyAllBtn = $("quote-copyall");
+    try {
+      const [bible, shk, poetry] = await Promise.all([
+        pickRandomBible(),
+        pickRandomShakespeare(),
+        pickRandomPoetry()
+      ]);
+      renderResults(resultsDiv, copyAllBtn, [bible, shk, poetry]);
+    } catch (e) {
+      resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
+    }
+  }
+
+  // =====================================================================
   // INIT
   // =====================================================================
 
   initBible();
   initShakespeare();
   initPoetry();
+
+  $("quote-reload").addEventListener("click", loadRandomQuote);
+  $("quote-each").addEventListener("click", loadOneOfEach);
+  loadRandomQuote();
 })();

@@ -37,9 +37,9 @@ var LitGen = (function () {
   // BIBLE GENERATOR
   // =====================================================================
 
-  async function buildBibleUI(dv, dataDir) {
+  async function buildBibleUI(dv, dataDir, parentContainer) {
     const index = await loadJSON(dv, dataDir + "/index.json");
-    const container = dv.el("div", "", { cls: "litgen-bible" });
+    const container = parentContainer || dv.el("div", "", { cls: "litgen-bible" });
 
     // Filter row
     const filterRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" });
@@ -118,9 +118,9 @@ var LitGen = (function () {
   // SHAKESPEARE GENERATOR
   // =====================================================================
 
-  async function buildShakespeareUI(dv, dataDir) {
+  async function buildShakespeareUI(dv, dataDir, parentContainer) {
     const index = await loadJSON(dv, dataDir + "/index.json");
-    const container = dv.el("div", "", { cls: "litgen-shakespeare" });
+    const container = parentContainer || dv.el("div", "", { cls: "litgen-shakespeare" });
 
     // Filter row
     const filterRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" });
@@ -213,7 +213,7 @@ var LitGen = (function () {
           ref: ref,
           linkTarget: linkTarget,
           expand: [
-            { label: "Full speech", text: speech.lines.join("\n") }
+            { label: "Full speech", text: ref + "\n\n" + speech.lines.join("\n") }
           ]
         };
       }
@@ -235,7 +235,7 @@ var LitGen = (function () {
       if (containingStanza && containingStanza.length < sonnet.lines.length) {
         expand.push({ label: "Stanza", text: containingStanza.join("\n") });
       }
-      expand.push({ label: "Full sonnet", text: sonnet.lines.join("\n") });
+      expand.push({ label: "Full sonnet", text: ref + "\n\n" + sonnet.stanzas.map(s => s.join("\n")).join("\n\n") });
 
       return { text: line, ref: ref, linkTarget: linkTarget, expand: expand };
 
@@ -259,7 +259,8 @@ var LitGen = (function () {
         expand.push({ label: "Stanza", text: containingStanza.join("\n") });
       }
       if (allLines.length > 1) {
-        expand.push({ label: "Full passage", text: allLines.join("\n") });
+        const body = allStanzas.length > 0 ? allStanzas.map(s => s.join("\n")).join("\n\n") : allLines.join("\n");
+        expand.push({ label: "Full passage", text: title + "\nby William Shakespeare\n\n" + body });
       }
 
       return { text: line, ref: ref, linkTarget: linkTarget, expand: expand };
@@ -270,9 +271,9 @@ var LitGen = (function () {
   // POETRY GENERATOR
   // =====================================================================
 
-  async function buildPoetryUI(dv, dataDir) {
+  async function buildPoetryUI(dv, dataDir, parentContainer) {
     const index = await loadJSON(dv, dataDir + "/index.json");
-    const container = dv.el("div", "", { cls: "litgen-poetry" });
+    const container = parentContainer || dv.el("div", "", { cls: "litgen-poetry" });
 
     // Filter row
     const filterRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" });
@@ -333,7 +334,8 @@ var LitGen = (function () {
             expand.push({ label: "Stanza", text: containingStanza.join("\n") });
           }
           if (poem.lines.length > 1) {
-            expand.push({ label: "Full poem", text: poem.lines.join("\n") });
+            const body = (poem.stanzas && poem.stanzas.length > 0) ? poem.stanzas.map(s => s.join("\n")).join("\n\n") : poem.lines.join("\n");
+            expand.push({ label: "Full poem", text: poem.title + "\nby " + authorData.author + "\n\n" + body });
           }
 
           items.push({ text: line, ref: ref, linkTarget: linkTarget, expand: expand });
@@ -425,13 +427,18 @@ var LitGen = (function () {
       quote.textContent = item.text;
       row.appendChild(quote);
 
+      // Track current expand level for copy button coordination
+      let currentLevel = -1;
+
       // Expand layers (stanza → full poem/speech)
       if (item.expand && item.expand.length > 0) {
         const expandArea = el("div", { marginTop: "4px" });
 
-        let currentLevel = -1; // -1 = line shown, 0 = first expand, 1 = second expand...
         const expandContent = document.createElement("div");
         expandContent.style.cssText = "white-space:pre-line;font-size:14px;font-style:italic;line-height:1.5;margin-top:6px;padding:8px 12px;border-left:3px solid var(--background-modifier-border);display:none";
+
+        const expandCopyBtn = document.createElement("button");
+        expandCopyBtn.style.cssText = "padding:2px 8px;font-size:11px;cursor:pointer;margin-top:4px;display:none";
 
         const expandBtn = document.createElement("button");
         expandBtn.style.cssText = "padding:2px 8px;font-size:11px;cursor:pointer;color:var(--text-muted)";
@@ -442,7 +449,10 @@ var LitGen = (function () {
           if (currentLevel < item.expand.length) {
             expandContent.style.display = "block";
             expandContent.textContent = item.expand[currentLevel].text;
-            // Update button for next level or hide
+            // Show copy button for expanded content
+            expandCopyBtn.style.display = "inline-block";
+            expandCopyBtn.textContent = "Copy " + item.expand[currentLevel].label.toLowerCase();
+            // Update button for next level or collapse
             if (currentLevel + 1 < item.expand.length) {
               expandBtn.textContent = "▸ " + item.expand[currentLevel + 1].label;
             } else {
@@ -451,13 +461,25 @@ var LitGen = (function () {
           } else {
             // Collapse back to line
             expandContent.style.display = "none";
+            expandCopyBtn.style.display = "none";
             currentLevel = -1;
             expandBtn.textContent = "▸ " + item.expand[0].label;
           }
         });
 
+        expandCopyBtn.addEventListener("click", () => {
+          if (currentLevel >= 0 && currentLevel < item.expand.length) {
+            const text = item.expand[currentLevel].text + "\n" + item.ref;
+            navigator.clipboard.writeText(text);
+            const label = expandCopyBtn.textContent;
+            expandCopyBtn.textContent = "Copied!";
+            setTimeout(() => { expandCopyBtn.textContent = label; }, 1500);
+          }
+        });
+
         expandArea.appendChild(expandBtn);
         expandArea.appendChild(expandContent);
+        expandArea.appendChild(expandCopyBtn);
         row.appendChild(expandArea);
       }
 
@@ -481,13 +503,13 @@ var LitGen = (function () {
       attrRow.appendChild(linkEl);
 
       const copyOne = document.createElement("button");
-      copyOne.textContent = "Copy";
+      copyOne.textContent = "Copy line";
       copyOne.style.cssText = "padding:2px 8px;font-size:11px;cursor:pointer;margin-left:8px;flex-shrink:0";
       const copyText = item.text + "\n" + item.ref;
       copyOne.addEventListener("click", () => {
         navigator.clipboard.writeText(copyText);
         copyOne.textContent = "Copied!";
-        setTimeout(() => { copyOne.textContent = "Copy"; }, 1500);
+        setTimeout(() => { copyOne.textContent = "Copy line"; }, 1500);
       });
       attrRow.appendChild(copyOne);
 
@@ -509,7 +531,154 @@ var LitGen = (function () {
   }
 
   // =====================================================================
+  // STANDALONE PICK FUNCTIONS (for Index page)
+  // =====================================================================
+
+  async function pickRandomBible(dv, dataDir) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const base = projectRoot(dataDir);
+    const bookInfo = weightedPick(index.books, b => b.verses);
+    const bookData = await loadJSON(dv, dataDir + "/" + bookInfo.file);
+    const ch = weightedPick(bookData.chapters, c => c.verses.length);
+    const verse = pick(ch.verses);
+    return {
+      text: verse.t,
+      ref: `${bookInfo.name} ${ch.chapter}:${verse.v}`,
+      linkTarget: `${base}/Source/Bible/${bookInfo.name}#Chapter ${ch.chapter}`
+    };
+  }
+
+  async function pickRandomShakespeare(dv, dataDir) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const base = projectRoot(dataDir);
+    const workInfo = weightedPick(index.works, w => w.lines);
+    const workData = await loadJSON(dv, dataDir + "/" + workInfo.file);
+    return pickShakespeare(workData, base);
+  }
+
+  async function pickRandomPoetry(dv, dataDir) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const base = projectRoot(dataDir);
+    const authorInfo = weightedPick(index.authors, a => a.lines);
+    const authorData = await loadJSON(dv, dataDir + "/" + authorInfo.file);
+    const poem = pick(authorData.poems);
+    if (!poem.lines || poem.lines.length === 0) return pickRandomPoetry(dv, dataDir);
+
+    const line = pick(poem.lines);
+    const ref = `— ${authorData.author}, "${poem.title}"`;
+    const linkTarget = `${base}/Source/Poetry/${authorData.author}#${poem.title}`;
+
+    let containingStanza = null;
+    for (const st of (poem.stanzas || [])) {
+      if (st.includes(line)) { containingStanza = st; break; }
+    }
+
+    const expand = [];
+    if (containingStanza && containingStanza.length < poem.lines.length) {
+      expand.push({ label: "Stanza", text: containingStanza.join("\n") });
+    }
+    if (poem.lines.length > 1) {
+      const body = (poem.stanzas && poem.stanzas.length > 0) ? poem.stanzas.map(s => s.join("\n")).join("\n\n") : poem.lines.join("\n");
+      expand.push({ label: "Full poem", text: poem.title + "\nby " + authorData.author + "\n\n" + body });
+    }
+
+    return { text: line, ref: ref, linkTarget: linkTarget, expand: expand };
+  }
+
+  // =====================================================================
+  // INDEX PAGE — all three generators + random quote + one of each
+  // =====================================================================
+
+  async function buildIndexUI(dv, baseDir) {
+    const container = dv.el("div", "", { cls: "litgen-index" });
+
+    const bibleDir = baseDir + "/Data/Bible";
+    const shkDir = baseDir + "/Data/Shakespeare";
+    const poetryDir = baseDir + "/Data/Poetry";
+
+    // --- Random quote at the top ---
+    const quoteSection = el("div", {
+      marginBottom: "20px",
+      padding: "12px 16px",
+      borderLeft: "4px solid var(--text-accent)",
+      background: "var(--background-secondary)"
+    });
+
+    const quoteContent = el("div", {});
+    quoteSection.appendChild(quoteContent);
+
+    const quoteControls = el("div", { marginTop: "8px", display: "flex", gap: "8px" });
+    const reloadBtn = makeButton("New Quote");
+    quoteControls.appendChild(reloadBtn);
+    const quoteCopyAll = makeCopyAllButton();
+    quoteSection.appendChild(quoteControls);
+    container.appendChild(quoteSection);
+
+    async function loadRandomQuote() {
+      try {
+        const source = pick(["bible", "shakespeare", "poetry"]);
+        let item;
+        if (source === "bible") item = await pickRandomBible(dv, bibleDir);
+        else if (source === "shakespeare") item = await pickRandomShakespeare(dv, shkDir);
+        else item = await pickRandomPoetry(dv, poetryDir);
+        renderResults(quoteContent, quoteCopyAll, [item]);
+      } catch (e) {
+        quoteContent.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
+      }
+    }
+    reloadBtn.addEventListener("click", loadRandomQuote);
+    await loadRandomQuote();
+
+    // --- One of Each button ---
+    const eachSection = el("div", { marginBottom: "24px" });
+    const eachControls = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" });
+    const eachBtn = makeButton("One of Each");
+    eachControls.appendChild(eachBtn);
+    eachSection.appendChild(eachControls);
+
+    const eachResults = el("div", {});
+    eachSection.appendChild(eachResults);
+    const eachCopyAll = makeCopyAllButton();
+    eachSection.appendChild(eachCopyAll);
+    container.appendChild(eachSection);
+
+    eachBtn.addEventListener("click", async () => {
+      try {
+        const [bible, shk, poetry] = await Promise.all([
+          pickRandomBible(dv, bibleDir),
+          pickRandomShakespeare(dv, shkDir),
+          pickRandomPoetry(dv, poetryDir)
+        ]);
+        renderResults(eachResults, eachCopyAll, [bible, shk, poetry]);
+      } catch (e) {
+        eachResults.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
+      }
+    });
+
+    // --- Separator ---
+    container.appendChild(el("hr", { margin: "20px 0", border: "none", borderTop: "1px solid var(--background-modifier-border)" }));
+
+    // --- Bible generator ---
+    const bibleHeader = document.createElement("h3");
+    bibleHeader.textContent = "Bible (KJV)";
+    container.appendChild(bibleHeader);
+    await buildBibleUI(dv, bibleDir, container);
+
+    // --- Shakespeare generator ---
+    const shkHeader = document.createElement("h3");
+    shkHeader.textContent = "Shakespeare";
+    container.appendChild(shkHeader);
+    await buildShakespeareUI(dv, shkDir, container);
+
+    // --- Poetry generator ---
+    const poetryHeader = document.createElement("h3");
+    poetryHeader.textContent = "Poetry";
+    container.appendChild(poetryHeader);
+    await buildPoetryUI(dv, poetryDir, container);
+  }
+
+  // =====================================================================
   // PUBLIC API
   // =====================================================================
-  return { buildBibleUI, buildShakespeareUI, buildPoetryUI };
+  return { buildBibleUI, buildShakespeareUI, buildPoetryUI, buildIndexUI };
 })();
