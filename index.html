@@ -5,44 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Literary Generators</title>
   <style>
+    /* WormLikeChain — "Flesh and Iron" palette */
     :root {
-      --bg: #1e1e2e;
-      --bg-surface: #262637;
-      --bg-hover: #2e2e42;
-      --text: #cdd6f4;
-      --text-muted: #9399b2;
-      --accent: #89b4fa;
-      --accent-hover: #b4d0fb;
-      --border: #45475a;
-      --quote-border: #585b70;
+      --bg: #1a1719;
+      --bg-surface: #242024;
+      --bg-hover: #2a2530;
+      --text: #d4c8cc;
+      --text-muted: #8a8290;
+      --text-faint: #6a6270;
+      --accent: #c4707e;
+      --accent-hover: #d4848f;
+      --border: #3a3440;
+      --quote-border: #3a3440;
     }
 
     @media (prefers-color-scheme: light) {
       :root {
-        --bg: #eff1f5;
-        --bg-surface: #e6e9ef;
-        --bg-hover: #dce0e8;
-        --text: #4c4f69;
-        --text-muted: #7c7f93;
-        --accent: #1e66f5;
-        --accent-hover: #2a7bff;
-        --border: #ccd0da;
-        --quote-border: #9ca0b0;
+        --bg: #f5eff0;
+        --bg-surface: #ebe3e5;
+        --bg-hover: #e2d8dc;
+        --text: #3a2830;
+        --text-muted: #8a7880;
+        --text-faint: #a89098;
+        --accent: #963a4a;
+        --accent-hover: #b04858;
+        --border: #d4c4c8;
+        --quote-border: #d4c4c8;
       }
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.75;
       min-height: 100vh;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 42em;
       margin: 0 auto;
       padding: 24px 20px;
     }
@@ -55,7 +58,9 @@
     }
 
     header h1 {
-      font-size: 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2em;
+      letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
 
@@ -73,6 +78,7 @@
       padding: 4px 12px;
       border: 1px solid var(--border);
       border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
     }
 
     header .repo-link:hover {
@@ -89,6 +95,7 @@
 
     .tab {
       padding: 10px 24px;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 15px;
       cursor: pointer;
       border: none;
@@ -162,9 +169,10 @@
     }
 
     .result-quote {
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 17px;
       font-style: italic;
-      line-height: 1.6;
+      line-height: 1.75;
       white-space: pre-line;
     }
 
@@ -192,12 +200,13 @@
     .expand-content {
       display: none;
       white-space: pre-line;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 14px;
       font-style: italic;
-      line-height: 1.6;
+      line-height: 1.75;
       margin-top: 8px;
       padding: 10px 14px;
-      border-left: 3px solid var(--quote-border);
+      border-left: 3px solid var(--accent);
       background: var(--bg-surface);
       border-radius: 0 4px 4px 0;
     }
@@ -234,6 +243,68 @@
       align-items: center;
     }
 
+    .blog-posts {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .blog-posts h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3em;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .blog-intro {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .blog-intro a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .blog-intro a:hover { text-decoration: underline; }
+
+    .blog-posts ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .blog-posts li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .blog-posts li a {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: text-decoration-color 0.15s, color 0.15s;
+      font-size: 14px;
+    }
+
+    .blog-posts li a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    .post-date {
+      font-size: 12px;
+      color: var(--text-faint);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     .note {
       margin-top: 40px;
       padding-top: 20px;
@@ -247,12 +318,26 @@
 
     .note a {
       color: var(--accent);
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: text-decoration-color 0.15s;
     }
 
-    .note a:hover { text-decoration: underline; }
+    .note a:hover { text-decoration-color: var(--accent); }
 
-    .error { color: #f38ba8; }
+    .error { color: #e0707a; }
+
+    ::selection { background: rgba(196, 112, 126, 0.2); }
+
+    @media (prefers-color-scheme: light) {
+      ::selection { background: rgba(150, 58, 74, 0.15); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition-duration: 0s !important; }
+    }
   </style>
 </head>
 <body>
@@ -343,6 +428,19 @@
       </div>
       <div class="results" id="poetry-results"></div>
       <button class="copy-all-btn" id="poetry-copyall">Copy All</button>
+    </div>
+
+    <!-- BLOG SIDEBAR -->
+    <div class="blog-posts">
+      <h2>From the Blog</h2>
+      <p class="blog-intro">TTRPG thoughts at <a href="https://blog.wormlikechain.com">blog.wormlikechain.com</a></p>
+      <ul>
+        <li><a href="https://blog.wormlikechain.com/posts/How-to-win-a-TTRPG">How to Win a TTRPG</a> <span class="post-date">Mar 2026</span></li>
+        <li><a href="https://blog.wormlikechain.com/posts/On-Maps">On Maps</a> <span class="post-date">Mar 2026</span></li>
+        <li><a href="https://blog.wormlikechain.com/posts/Tales-of-the-Valiant-after-50-Sessions">Tales of the Valiant after 50 Sessions</a> <span class="post-date">Feb 2026</span></li>
+        <li><a href="https://blog.wormlikechain.com/posts/Jumping-on-the-Quantum-Railroad">Jumping on the Quantum Railroad</a> <span class="post-date">Jan 2026</span></li>
+        <li><a href="https://blog.wormlikechain.com/posts/Year-in-Review-and-2026-Goals">Year End Review and 2026 Goals</a> <span class="post-date">Jan 2026</span></li>
+      </ul>
     </div>
 
     <div class="note">
