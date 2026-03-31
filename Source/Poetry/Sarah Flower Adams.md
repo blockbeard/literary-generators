@@ -1,0 +1,76 @@
+# Sarah Flower Adams
+
+> 2 poems · 47 lines
+> Back to [[Literary Generators/Poetry|Poetry Generator]]
+
+---
+
+## Poems
+
+- [[#Nearer, my God, to Thee.]]
+- [[#Part In Peace: Is Day Before Us?]]
+
+---
+
+## Nearer, my God, to Thee.
+
+Nearer, my God, to Thee,
+Nearer to Thee!
+E'en though it be a cross
+That raiseth me:
+Still all my song shall be
+Nearer, my God! to Thee,
+Nearer to Thee.
+
+Though, like the wanderer,
+The sun gone down,
+Darkness be over me,
+My rest a stone;
+Yet in my dreams I'd be
+Nearer, my God, to Thee,
+Nearer to Thee.
+
+Then let the way appear
+Steps unto heaven;
+All that Thou sendest me
+In mercy given:
+Angels to beckon me
+Nearer, my God, to Thee,
+Nearer to Thee.
+
+Then with my waking thoughts
+Bright with Thy praise,
+Out of my stony griefs
+Bethel I'll raise;
+So by my woes to be
+Nearer, my God, to Thee,
+Nearer to Thee.
+
+Or if on joyful wing,
+Cleaving the sky,
+Sun, moon, and stars forgot,
+Upward I fly:
+Still all my song shall be,
+Nearer, my God, to Thee,
+Nearer to Thee.
+
+---
+
+## Part In Peace: Is Day Before Us?
+
+Part in peace: is day before us?
+Praise His Name for life and light;
+Are the shadows lengthening o’er us?
+Bless His care Who guards the night.
+
+Part in peace: with deep thanksgiving,
+Rendering, as we homeward tread,
+Gracious service to the living,
+Tranquil memory to the dead.
+
+Part in peace: such are the praises
+God our Maker loveth best;
+Such the worship that upraises
+Human hearts to heavenly rest.
+
+---

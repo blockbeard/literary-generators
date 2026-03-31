@@ -1,0 +1,434 @@
+{
+  "works": [
+    {
+      "id": "12night",
+      "title": "Twelfth Night",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "12night.json",
+      "date": "1599",
+      "lines": 2515,
+      "speeches": 923
+    },
+    {
+      "id": "allswell",
+      "title": "All's Well That Ends Well",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "allswell.json",
+      "date": "1602",
+      "lines": 2956,
+      "speeches": 935
+    },
+    {
+      "id": "antonycleo",
+      "title": "Antony and Cleopatra",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "antonycleo.json",
+      "date": "1606",
+      "lines": 3641,
+      "speeches": 1174
+    },
+    {
+      "id": "asyoulikeit",
+      "title": "As You Like It",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "asyoulikeit.json",
+      "date": "1599",
+      "lines": 2550,
+      "speeches": 808
+    },
+    {
+      "id": "comedyerrors",
+      "title": "Comedy of Errors",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "comedyerrors.json",
+      "date": "1589",
+      "lines": 1817,
+      "speeches": 608
+    },
+    {
+      "id": "coriolanus",
+      "title": "Coriolanus",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "coriolanus.json",
+      "date": "1607",
+      "lines": 3855,
+      "speeches": 1107
+    },
+    {
+      "id": "cymbeline",
+      "title": "Cymbeline",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "cymbeline.json",
+      "date": "1609",
+      "lines": 3825,
+      "speeches": 858
+    },
+    {
+      "id": "hamlet",
+      "title": "Hamlet",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "hamlet.json",
+      "date": "1600",
+      "lines": 3930,
+      "speeches": 1135
+    },
+    {
+      "id": "henry4p1",
+      "title": "Henry IV, Part I",
+      "type": "play",
+      "genre": "History",
+      "file": "henry4p1.json",
+      "date": "1597",
+      "lines": 3077,
+      "speeches": 774
+    },
+    {
+      "id": "henry4p2",
+      "title": "Henry IV, Part II",
+      "type": "play",
+      "genre": "History",
+      "file": "henry4p2.json",
+      "date": "1597",
+      "lines": 3063,
+      "speeches": 904
+    },
+    {
+      "id": "henry5",
+      "title": "Henry V",
+      "type": "play",
+      "genre": "History",
+      "file": "henry5.json",
+      "date": "1598",
+      "lines": 3251,
+      "speeches": 740
+    },
+    {
+      "id": "henry6p1",
+      "title": "Henry VI, Part I",
+      "type": "play",
+      "genre": "History",
+      "file": "henry6p1.json",
+      "date": "1591",
+      "lines": 2788,
+      "speeches": 663
+    },
+    {
+      "id": "henry6p2",
+      "title": "Henry VI, Part II",
+      "type": "play",
+      "genre": "History",
+      "file": "henry6p2.json",
+      "date": "1590",
+      "lines": 3197,
+      "speeches": 790
+    },
+    {
+      "id": "henry6p3",
+      "title": "Henry VI, Part III",
+      "type": "play",
+      "genre": "History",
+      "file": "henry6p3.json",
+      "date": "1590",
+      "lines": 2988,
+      "speeches": 812
+    },
+    {
+      "id": "henry8",
+      "title": "Henry VIII",
+      "type": "play",
+      "genre": "History",
+      "file": "henry8.json",
+      "date": "1612",
+      "lines": 3352,
+      "speeches": 705
+    },
+    {
+      "id": "juliuscaesar",
+      "title": "Julius Caesar",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "juliuscaesar.json",
+      "date": "1599",
+      "lines": 2656,
+      "speeches": 795
+    },
+    {
+      "id": "kingjohn",
+      "title": "King John",
+      "type": "play",
+      "genre": "History",
+      "file": "kingjohn.json",
+      "date": "1596",
+      "lines": 2677,
+      "speeches": 550
+    },
+    {
+      "id": "kinglear",
+      "title": "King Lear",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "kinglear.json",
+      "date": "1605",
+      "lines": 3409,
+      "speeches": 1069
+    },
+    {
+      "id": "loverscomplaint",
+      "title": "Lover's Complaint",
+      "type": "poem",
+      "genre": "Poem",
+      "file": "loverscomplaint.json",
+      "date": "1609",
+      "lines": 331,
+      "speeches": 1
+    },
+    {
+      "id": "loveslabours",
+      "title": "Love's Labour's Lost",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "loveslabours.json",
+      "date": "1594",
+      "lines": 2799,
+      "speeches": 1047
+    },
+    {
+      "id": "macbeth",
+      "title": "Macbeth",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "macbeth.json",
+      "date": "1605",
+      "lines": 2442,
+      "speeches": 649
+    },
+    {
+      "id": "measure",
+      "title": "Measure for Measure",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "measure.json",
+      "date": "1604",
+      "lines": 2881,
+      "speeches": 897
+    },
+    {
+      "id": "merchantvenice",
+      "title": "Merchant of Venice",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "merchantvenice.json",
+      "date": "1596",
+      "lines": 2693,
+      "speeches": 636
+    },
+    {
+      "id": "merrywives",
+      "title": "Merry Wives of Windsor",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "merrywives.json",
+      "date": "1600",
+      "lines": 2667,
+      "speeches": 1018
+    },
+    {
+      "id": "midsummer",
+      "title": "Midsummer Night's Dream",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "midsummer.json",
+      "date": "1595",
+      "lines": 2181,
+      "speeches": 500
+    },
+    {
+      "id": "muchado",
+      "title": "Much Ado about Nothing",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "muchado.json",
+      "date": "1598",
+      "lines": 2598,
+      "speeches": 978
+    },
+    {
+      "id": "othello",
+      "title": "Othello",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "othello.json",
+      "date": "1604",
+      "lines": 3613,
+      "speeches": 1180
+    },
+    {
+      "id": "passionatepilgrim",
+      "title": "Passionate Pilgrim",
+      "type": "poem",
+      "genre": "Poem",
+      "file": "passionatepilgrim.json",
+      "date": "1598",
+      "lines": 432,
+      "speeches": 21
+    },
+    {
+      "id": "pericles",
+      "title": "Pericles",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "pericles.json",
+      "date": "1608",
+      "lines": 2509,
+      "speeches": 639
+    },
+    {
+      "id": "phoenixturtle",
+      "title": "Phoenix and the Turtle",
+      "type": "poem",
+      "genre": "Poem",
+      "file": "phoenixturtle.json",
+      "date": "1601",
+      "lines": 68,
+      "speeches": 1
+    },
+    {
+      "id": "rapelucrece",
+      "title": "Rape of Lucrece",
+      "type": "poem",
+      "genre": "Poem",
+      "file": "rapelucrece.json",
+      "date": "1594",
+      "lines": 1909,
+      "speeches": 3
+    },
+    {
+      "id": "richard2",
+      "title": "Richard II",
+      "type": "play",
+      "genre": "History",
+      "file": "richard2.json",
+      "date": "1595",
+      "lines": 2842,
+      "speeches": 554
+    },
+    {
+      "id": "richard3",
+      "title": "Richard III",
+      "type": "play",
+      "genre": "History",
+      "file": "richard3.json",
+      "date": "1592",
+      "lines": 3782,
+      "speeches": 1089
+    },
+    {
+      "id": "romeojuliet",
+      "title": "Romeo and Juliet",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "romeojuliet.json",
+      "date": "1594",
+      "lines": 3139,
+      "speeches": 843
+    },
+    {
+      "id": "sonnets",
+      "title": "Sonnets",
+      "type": "sonnet",
+      "genre": "Sonnet",
+      "file": "sonnets.json",
+      "date": "1609",
+      "lines": 2157,
+      "speeches": 154
+    },
+    {
+      "id": "tamingshrew",
+      "title": "Taming of the Shrew",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "tamingshrew.json",
+      "date": "1593",
+      "lines": 2625,
+      "speeches": 892
+    },
+    {
+      "id": "tempest",
+      "title": "Tempest",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "tempest.json",
+      "date": "1611",
+      "lines": 2359,
+      "speeches": 641
+    },
+    {
+      "id": "timonathens",
+      "title": "Timon of Athens",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "timonathens.json",
+      "date": "1607",
+      "lines": 2499,
+      "speeches": 765
+    },
+    {
+      "id": "titus",
+      "title": "Titus Andronicus",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "titus.json",
+      "date": "1593",
+      "lines": 2635,
+      "speeches": 564
+    },
+    {
+      "id": "troilus",
+      "title": "Troilus and Cressida",
+      "type": "play",
+      "genre": "Tragedy",
+      "file": "troilus.json",
+      "date": "1601",
+      "lines": 3523,
+      "speeches": 1137
+    },
+    {
+      "id": "twogents",
+      "title": "Two Gentlemen of Verona",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "twogents.json",
+      "date": "1594",
+      "lines": 2246,
+      "speeches": 857
+    },
+    {
+      "id": "venusadonis",
+      "title": "Venus and Adonis",
+      "type": "poem",
+      "genre": "Poem",
+      "file": "venusadonis.json",
+      "date": "1593",
+      "lines": 1216,
+      "speeches": 2
+    },
+    {
+      "id": "winterstale",
+      "title": "The Winter's Tale",
+      "type": "play",
+      "genre": "Comedy",
+      "file": "winterstale.json",
+      "date": "1610",
+      "lines": 3403,
+      "speeches": 745
+    }
+  ]
+}

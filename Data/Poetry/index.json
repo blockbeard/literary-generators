@@ -1,0 +1,778 @@
+{
+  "authors": [
+    {
+      "name": "Adam Lindsay Gordon",
+      "file": "adam_lindsay_gordon.json",
+      "poems": 2,
+      "lines": 72
+    },
+    {
+      "name": "Alan Seeger",
+      "file": "alan_seeger.json",
+      "poems": 6,
+      "lines": 960
+    },
+    {
+      "name": "Alexander Pope",
+      "file": "alexander_pope.json",
+      "poems": 63,
+      "lines": 9080
+    },
+    {
+      "name": "Algernon Charles Swinburne",
+      "file": "algernon_charles_swinburne.json",
+      "poems": 42,
+      "lines": 4887
+    },
+    {
+      "name": "Ambrose Bierce",
+      "file": "ambrose_bierce.json",
+      "poems": 2,
+      "lines": 68
+    },
+    {
+      "name": "Amy Levy",
+      "file": "amy_levy.json",
+      "poems": 12,
+      "lines": 455
+    },
+    {
+      "name": "Andrew Marvell",
+      "file": "andrew_marvell.json",
+      "poems": 10,
+      "lines": 2626
+    },
+    {
+      "name": "Ann Taylor",
+      "file": "ann_taylor.json",
+      "poems": 5,
+      "lines": 114
+    },
+    {
+      "name": "Anne Bradstreet",
+      "file": "anne_bradstreet.json",
+      "poems": 11,
+      "lines": 884
+    },
+    {
+      "name": "Anne Bronte",
+      "file": "anne_bronte.json",
+      "poems": 13,
+      "lines": 397
+    },
+    {
+      "name": "Anne Killigrew",
+      "file": "anne_killigrew.json",
+      "poems": 7,
+      "lines": 499
+    },
+    {
+      "name": "Anne Kingsmill Finch",
+      "file": "anne_kingsmill_finch.json",
+      "poems": 12,
+      "lines": 632
+    },
+    {
+      "name": "Annie Louisa Walker",
+      "file": "annie_louisa_walker.json",
+      "poems": 1,
+      "lines": 24
+    },
+    {
+      "name": "Arthur Hugh Clough",
+      "file": "arthur_hugh_clough.json",
+      "poems": 3,
+      "lines": 92
+    },
+    {
+      "name": "Ben Jonson",
+      "file": "ben_jonson.json",
+      "poems": 13,
+      "lines": 489
+    },
+    {
+      "name": "Charles Kingsley",
+      "file": "charles_kingsley.json",
+      "poems": 3,
+      "lines": 50
+    },
+    {
+      "name": "Charles Sorley",
+      "file": "charles_sorley.json",
+      "poems": 2,
+      "lines": 111
+    },
+    {
+      "name": "Charlotte Bronte",
+      "file": "charlotte_bronte.json",
+      "poems": 7,
+      "lines": 448
+    },
+    {
+      "name": "Charlotte Smith",
+      "file": "charlotte_smith.json",
+      "poems": 5,
+      "lines": 871
+    },
+    {
+      "name": "Christina Rossetti",
+      "file": "christina_rossetti.json",
+      "poems": 13,
+      "lines": 538
+    },
+    {
+      "name": "Christopher Marlowe",
+      "file": "christopher_marlowe.json",
+      "poems": 1,
+      "lines": 24
+    },
+    {
+      "name": "Christopher Smart",
+      "file": "christopher_smart.json",
+      "poems": 11,
+      "lines": 2188
+    },
+    {
+      "name": "Coventry Patmore",
+      "file": "coventry_patmore.json",
+      "poems": 1,
+      "lines": 25
+    },
+    {
+      "name": "Edgar Allan Poe",
+      "file": "edgar_allan_poe.json",
+      "poems": 47,
+      "lines": 2249
+    },
+    {
+      "name": "Edmund Spenser",
+      "file": "edmund_spenser.json",
+      "poems": 15,
+      "lines": 2469
+    },
+    {
+      "name": "Edward Fitzgerald",
+      "file": "edward_fitzgerald.json",
+      "poems": 2,
+      "lines": 95
+    },
+    {
+      "name": "Edward Lear",
+      "file": "edward_lear.json",
+      "poems": 2,
+      "lines": 108
+    },
+    {
+      "name": "Edward Taylor",
+      "file": "edward_taylor.json",
+      "poems": 8,
+      "lines": 267
+    },
+    {
+      "name": "Edward Thomas",
+      "file": "edward_thomas.json",
+      "poems": 132,
+      "lines": 3218
+    },
+    {
+      "name": "Eliza Cook",
+      "file": "eliza_cook.json",
+      "poems": 1,
+      "lines": 32
+    },
+    {
+      "name": "Elizabeth Barrett Browning",
+      "file": "elizabeth_barrett_browning.json",
+      "poems": 33,
+      "lines": 1269
+    },
+    {
+      "name": "Emily Bronte",
+      "file": "emily_bronte.json",
+      "poems": 14,
+      "lines": 400
+    },
+    {
+      "name": "Emily Dickinson",
+      "file": "emily_dickinson.json",
+      "poems": 362,
+      "lines": 4183
+    },
+    {
+      "name": "Emma Lazarus",
+      "file": "emma_lazarus.json",
+      "poems": 4,
+      "lines": 56
+    },
+    {
+      "name": "Ernest Dowson",
+      "file": "ernest_dowson.json",
+      "poems": 1,
+      "lines": 16
+    },
+    {
+      "name": "Eugene Field",
+      "file": "eugene_field.json",
+      "poems": 32,
+      "lines": 1395
+    },
+    {
+      "name": "Francis Thompson",
+      "file": "francis_thompson.json",
+      "poems": 1,
+      "lines": 167
+    },
+    {
+      "name": "Geoffrey Chaucer",
+      "file": "geoffrey_chaucer.json",
+      "poems": 30,
+      "lines": 25696
+    },
+    {
+      "name": "George Eliot",
+      "file": "george_eliot.json",
+      "poems": 2,
+      "lines": 84
+    },
+    {
+      "name": "George Gordon, Lord Byron",
+      "file": "george_gordon_lord_byron.json",
+      "poems": 303,
+      "lines": 69106
+    },
+    {
+      "name": "George Herbert",
+      "file": "george_herbert.json",
+      "poems": 16,
+      "lines": 395
+    },
+    {
+      "name": "George Meredith",
+      "file": "george_meredith.json",
+      "poems": 9,
+      "lines": 339
+    },
+    {
+      "name": "Gerard Manley Hopkins",
+      "file": "gerard_manley_hopkins.json",
+      "poems": 26,
+      "lines": 540
+    },
+    {
+      "name": "Helen Hunt Jackson",
+      "file": "helen_hunt_jackson.json",
+      "poems": 11,
+      "lines": 224
+    },
+    {
+      "name": "Henry David Thoreau",
+      "file": "henry_david_thoreau.json",
+      "poems": 8,
+      "lines": 270
+    },
+    {
+      "name": "Henry Vaughan",
+      "file": "henry_vaughan.json",
+      "poems": 6,
+      "lines": 184
+    },
+    {
+      "name": "Henry Wadsworth Longfellow",
+      "file": "henry_wadsworth_longfellow.json",
+      "poems": 39,
+      "lines": 4546
+    },
+    {
+      "name": "Hugh Henry Brackenridge",
+      "file": "hugh_henry_brackenridge.json",
+      "poems": 2,
+      "lines": 1438
+    },
+    {
+      "name": "Isaac Watts",
+      "file": "isaac_watts.json",
+      "poems": 13,
+      "lines": 478
+    },
+    {
+      "name": "James Henry Leigh Hunt",
+      "file": "james_henry_leigh_hunt.json",
+      "poems": 5,
+      "lines": 188
+    },
+    {
+      "name": "James Thomson",
+      "file": "james_thomson.json",
+      "poems": 3,
+      "lines": 630
+    },
+    {
+      "name": "James Whitcomb Riley",
+      "file": "james_whitcomb_riley.json",
+      "poems": 9,
+      "lines": 512
+    },
+    {
+      "name": "Jane Austen",
+      "file": "jane_austen.json",
+      "poems": 3,
+      "lines": 80
+    },
+    {
+      "name": "Jane Taylor",
+      "file": "jane_taylor.json",
+      "poems": 4,
+      "lines": 90
+    },
+    {
+      "name": "John Clare",
+      "file": "john_clare.json",
+      "poems": 132,
+      "lines": 4990
+    },
+    {
+      "name": "John Donne",
+      "file": "john_donne.json",
+      "poems": 28,
+      "lines": 539
+    },
+    {
+      "name": "John Dryden",
+      "file": "john_dryden.json",
+      "poems": 13,
+      "lines": 2664
+    },
+    {
+      "name": "John Greenleaf Whittier",
+      "file": "john_greenleaf_whittier.json",
+      "poems": 12,
+      "lines": 1554
+    },
+    {
+      "name": "John Keats",
+      "file": "john_keats.json",
+      "poems": 24,
+      "lines": 5645
+    },
+    {
+      "name": "John McCrae",
+      "file": "john_mccrae.json",
+      "poems": 1,
+      "lines": 13
+    },
+    {
+      "name": "John Milton",
+      "file": "john_milton.json",
+      "poems": 26,
+      "lines": 15324
+    },
+    {
+      "name": "John Trumbull",
+      "file": "john_trumbull.json",
+      "poems": 4,
+      "lines": 2644
+    },
+    {
+      "name": "John Wilmot",
+      "file": "john_wilmot.json",
+      "poems": 6,
+      "lines": 519
+    },
+    {
+      "name": "Jonathan Swift",
+      "file": "jonathan_swift.json",
+      "poems": 3,
+      "lines": 583
+    },
+    {
+      "name": "Joseph Warton",
+      "file": "joseph_warton.json",
+      "poems": 1,
+      "lines": 22
+    },
+    {
+      "name": "Joyce Kilmer",
+      "file": "joyce_kilmer.json",
+      "poems": 16,
+      "lines": 452
+    },
+    {
+      "name": "Julia Ward Howe",
+      "file": "julia_ward_howe.json",
+      "poems": 3,
+      "lines": 115
+    },
+    {
+      "name": "Jupiter Hammon",
+      "file": "jupiter_hammon.json",
+      "poems": 1,
+      "lines": 88
+    },
+    {
+      "name": "Katherine Philips",
+      "file": "katherine_philips.json",
+      "poems": 9,
+      "lines": 365
+    },
+    {
+      "name": "Lady Mary Chudleigh",
+      "file": "lady_mary_chudleigh.json",
+      "poems": 1,
+      "lines": 77
+    },
+    {
+      "name": "Lewis Carroll",
+      "file": "lewis_carroll.json",
+      "poems": 9,
+      "lines": 358
+    },
+    {
+      "name": "Lord Alfred Tennyson",
+      "file": "lord_alfred_tennyson.json",
+      "poems": 45,
+      "lines": 12469
+    },
+    {
+      "name": "Louisa May Alcott",
+      "file": "louisa_may_alcott.json",
+      "poems": 4,
+      "lines": 120
+    },
+    {
+      "name": "Major Henry Livingston, Jr.",
+      "file": "major_henry_livingston_jr.json",
+      "poems": 7,
+      "lines": 147
+    },
+    {
+      "name": "Mark Twain",
+      "file": "mark_twain.json",
+      "poems": 1,
+      "lines": 49
+    },
+    {
+      "name": "Mary Elizabeth Coleridge",
+      "file": "mary_elizabeth_coleridge.json",
+      "poems": 3,
+      "lines": 32
+    },
+    {
+      "name": "Matthew Arnold",
+      "file": "matthew_arnold.json",
+      "poems": 10,
+      "lines": 2684
+    },
+    {
+      "name": "Matthew Prior",
+      "file": "matthew_prior.json",
+      "poems": 3,
+      "lines": 63
+    },
+    {
+      "name": "Michael Drayton",
+      "file": "michael_drayton.json",
+      "poems": 43,
+      "lines": 721
+    },
+    {
+      "name": "Oliver Goldsmith",
+      "file": "oliver_goldsmith.json",
+      "poems": 3,
+      "lines": 470
+    },
+    {
+      "name": "Oliver Wendell Holmes",
+      "file": "oliver_wendell_holmes.json",
+      "poems": 8,
+      "lines": 397
+    },
+    {
+      "name": "Oscar Wilde",
+      "file": "oscar_wilde.json",
+      "poems": 10,
+      "lines": 1626
+    },
+    {
+      "name": "Paul Laurence Dunbar",
+      "file": "paul_laurence_dunbar.json",
+      "poems": 9,
+      "lines": 225
+    },
+    {
+      "name": "Percy Bysshe Shelley",
+      "file": "percy_bysshe_shelley.json",
+      "poems": 286,
+      "lines": 37350
+    },
+    {
+      "name": "Philip Freneau",
+      "file": "philip_freneau.json",
+      "poems": 4,
+      "lines": 97
+    },
+    {
+      "name": "Phillis Wheatley",
+      "file": "phillis_wheatley.json",
+      "poems": 12,
+      "lines": 931
+    },
+    {
+      "name": "Ralph Waldo Emerson",
+      "file": "ralph_waldo_emerson.json",
+      "poems": 5,
+      "lines": 280
+    },
+    {
+      "name": "Richard Crashaw",
+      "file": "richard_crashaw.json",
+      "poems": 7,
+      "lines": 531
+    },
+    {
+      "name": "Richard Lovelace",
+      "file": "richard_lovelace.json",
+      "poems": 1,
+      "lines": 24
+    },
+    {
+      "name": "Robert Browning",
+      "file": "robert_browning.json",
+      "poems": 66,
+      "lines": 7429
+    },
+    {
+      "name": "Robert Burns",
+      "file": "robert_burns.json",
+      "poems": 99,
+      "lines": 5106
+    },
+    {
+      "name": "Robert Herrick",
+      "file": "robert_herrick.json",
+      "poems": 63,
+      "lines": 1166
+    },
+    {
+      "name": "Robert Louis Stevenson",
+      "file": "robert_louis_stevenson.json",
+      "poems": 44,
+      "lines": 921
+    },
+    {
+      "name": "Robert Southey",
+      "file": "robert_southey.json",
+      "poems": 12,
+      "lines": 1545
+    },
+    {
+      "name": "Robinson",
+      "file": "robinson.json",
+      "poems": 54,
+      "lines": 2792
+    },
+    {
+      "name": "Rupert Brooke",
+      "file": "rupert_brooke.json",
+      "poems": 26,
+      "lines": 562
+    },
+    {
+      "name": "Samuel Coleridge",
+      "file": "samuel_coleridge.json",
+      "poems": 23,
+      "lines": 1769
+    },
+    {
+      "name": "Samuel Johnson",
+      "file": "samuel_johnson.json",
+      "poems": 1,
+      "lines": 36
+    },
+    {
+      "name": "Sarah Flower Adams",
+      "file": "sarah_flower_adams.json",
+      "poems": 2,
+      "lines": 47
+    },
+    {
+      "name": "Sidney Lanier",
+      "file": "sidney_lanier.json",
+      "poems": 17,
+      "lines": 2108
+    },
+    {
+      "name": "Sir John Suckling",
+      "file": "sir_john_suckling.json",
+      "poems": 2,
+      "lines": 167
+    },
+    {
+      "name": "Sir Philip Sidney",
+      "file": "sir_philip_sidney.json",
+      "poems": 11,
+      "lines": 154
+    },
+    {
+      "name": "Sir Thomas Wyatt",
+      "file": "sir_thomas_wyatt.json",
+      "poems": 3,
+      "lines": 42
+    },
+    {
+      "name": "Sir Walter Raleigh",
+      "file": "sir_walter_raleigh.json",
+      "poems": 6,
+      "lines": 153
+    },
+    {
+      "name": "Sir Walter Scott",
+      "file": "sir_walter_scott.json",
+      "poems": 6,
+      "lines": 238
+    },
+    {
+      "name": "Stephen Crane",
+      "file": "stephen_crane.json",
+      "poems": 24,
+      "lines": 365
+    },
+    {
+      "name": "Thomas Campbell",
+      "file": "thomas_campbell.json",
+      "poems": 8,
+      "lines": 1134
+    },
+    {
+      "name": "Thomas Chatterton",
+      "file": "thomas_chatterton.json",
+      "poems": 3,
+      "lines": 255
+    },
+    {
+      "name": "Thomas Flatman",
+      "file": "thomas_flatman.json",
+      "poems": 1,
+      "lines": 19
+    },
+    {
+      "name": "Thomas Gray",
+      "file": "thomas_gray.json",
+      "poems": 3,
+      "lines": 238
+    },
+    {
+      "name": "Thomas Hood",
+      "file": "thomas_hood.json",
+      "poems": 10,
+      "lines": 668
+    },
+    {
+      "name": "Thomas Moore",
+      "file": "thomas_moore.json",
+      "poems": 31,
+      "lines": 825
+    },
+    {
+      "name": "Thomas Warton",
+      "file": "thomas_warton.json",
+      "poems": 1,
+      "lines": 14
+    },
+    {
+      "name": "Walt Whitman",
+      "file": "walt_whitman.json",
+      "poems": 67,
+      "lines": 6540
+    },
+    {
+      "name": "Walter Savage Landor",
+      "file": "walter_savage_landor.json",
+      "poems": 13,
+      "lines": 106
+    },
+    {
+      "name": "Wilfred Owen",
+      "file": "wilfred_owen.json",
+      "poems": 5,
+      "lines": 178
+    },
+    {
+      "name": "William Allingham",
+      "file": "william_allingham.json",
+      "poems": 6,
+      "lines": 80
+    },
+    {
+      "name": "William Barnes",
+      "file": "william_barnes.json",
+      "poems": 5,
+      "lines": 174
+    },
+    {
+      "name": "William Blake",
+      "file": "william_blake.json",
+      "poems": 50,
+      "lines": 1028
+    },
+    {
+      "name": "William Browne",
+      "file": "william_browne.json",
+      "poems": 2,
+      "lines": 32
+    },
+    {
+      "name": "William Cowper",
+      "file": "william_cowper.json",
+      "poems": 23,
+      "lines": 961
+    },
+    {
+      "name": "William Cullen Bryant",
+      "file": "william_cullen_bryant.json",
+      "poems": 7,
+      "lines": 401
+    },
+    {
+      "name": "William Ernest Henley",
+      "file": "william_ernest_henley.json",
+      "poems": 6,
+      "lines": 159
+    },
+    {
+      "name": "William Lisle Bowles",
+      "file": "william_lisle_bowles.json",
+      "poems": 2,
+      "lines": 50
+    },
+    {
+      "name": "William Morris",
+      "file": "william_morris.json",
+      "poems": 12,
+      "lines": 2025
+    },
+    {
+      "name": "William Shakespeare",
+      "file": "william_shakespeare.json",
+      "poems": 162,
+      "lines": 2606
+    },
+    {
+      "name": "William Topaz McGonagall",
+      "file": "william_topaz_mcgonagall.json",
+      "poems": 74,
+      "lines": 3719
+    },
+    {
+      "name": "William Vaughn Moody",
+      "file": "william_vaughn_moody.json",
+      "poems": 2,
+      "lines": 242
+    },
+    {
+      "name": "William Wordsworth",
+      "file": "william_wordsworth.json",
+      "poems": 2,
+      "lines": 48
+    }
+  ]
+}
