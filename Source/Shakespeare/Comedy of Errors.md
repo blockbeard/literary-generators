@@ -1,7 +1,7 @@
 # Comedy of Errors
 
 > Play · 1589 · 1802 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

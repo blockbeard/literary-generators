@@ -1,7 +1,7 @@
 # Merchant of Venice
 
 > Play · 1596 · 2670 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Paul Laurence Dunbar
 
 > 9 poems · 225 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

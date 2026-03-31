@@ -1,7 +1,7 @@
 # William Cullen Bryant
 
 > 7 poems · 401 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

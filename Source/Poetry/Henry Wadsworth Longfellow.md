@@ -1,7 +1,7 @@
 # Henry Wadsworth Longfellow
 
 > 39 poems · 4546 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

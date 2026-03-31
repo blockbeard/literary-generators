@@ -1,7 +1,7 @@
 # All's Well That Ends Well
 
 > Play · 1602 · 2934 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

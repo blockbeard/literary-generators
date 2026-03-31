@@ -1,7 +1,7 @@
 # Edward Thomas
 
 > 132 poems · 3218 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Romeo and Juliet
 
 > Play · 1594 · 3100 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

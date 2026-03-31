@@ -1,7 +1,7 @@
 # James Henry Leigh Hunt
 
 > 5 poems · 188 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

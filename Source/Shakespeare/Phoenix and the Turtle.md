@@ -1,7 +1,7 @@
 # Phoenix and the Turtle
 
 > Poem · 1601 · 68 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

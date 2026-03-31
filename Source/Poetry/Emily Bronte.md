@@ -1,7 +1,7 @@
 # Emily Bronte
 
 > 14 poems · 400 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

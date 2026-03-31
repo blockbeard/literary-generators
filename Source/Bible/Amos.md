@@ -2,7 +2,7 @@
 
 > OT · 9 chapters · 146 verses
 
-Back to [[Literary Generators/Bible|Bible Generator]]
+Back to [Bible Generator](../../Bible.md)
 
 ---
 

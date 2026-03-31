@@ -1,7 +1,7 @@
 # Algernon Charles Swinburne
 
 > 42 poems · 4887 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

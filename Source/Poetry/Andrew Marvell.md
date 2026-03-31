@@ -1,7 +1,7 @@
 # Andrew Marvell
 
 > 10 poems · 2626 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

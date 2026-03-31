@@ -1,7 +1,7 @@
 # Christopher Smart
 
 > 11 poems · 2188 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

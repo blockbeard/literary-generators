@@ -1,7 +1,7 @@
 # Christina Rossetti
 
 > 13 poems · 538 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

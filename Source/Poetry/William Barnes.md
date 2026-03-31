@@ -1,7 +1,7 @@
 # William Barnes
 
 > 5 poems · 174 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

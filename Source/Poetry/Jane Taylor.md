@@ -1,7 +1,7 @@
 # Jane Taylor
 
 > 4 poems · 90 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

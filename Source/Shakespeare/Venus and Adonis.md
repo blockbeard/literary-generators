@@ -1,7 +1,7 @@
 # Venus and Adonis
 
 > Poem · 1593 · 1216 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

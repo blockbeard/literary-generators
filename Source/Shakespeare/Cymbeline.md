@@ -1,7 +1,7 @@
 # Cymbeline
 
 > Play · 1609 · 3780 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Richard II
 
 > Play · 1595 · 2821 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

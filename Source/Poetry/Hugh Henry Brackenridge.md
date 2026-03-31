@@ -1,7 +1,7 @@
 # Hugh Henry Brackenridge
 
 > 2 poems · 1438 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

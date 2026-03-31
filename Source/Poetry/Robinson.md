@@ -1,7 +1,7 @@
 # Robinson
 
 > 54 poems · 2792 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

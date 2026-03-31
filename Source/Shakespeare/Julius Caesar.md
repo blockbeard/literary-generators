@@ -1,7 +1,7 @@
 # Julius Caesar
 
 > Play · 1599 · 2708 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

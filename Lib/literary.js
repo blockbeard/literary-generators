@@ -27,6 +27,12 @@ var LitGen = (function () {
     return data;
   }
 
+  // Derive the project root from a dataDir like "Some Folder/Data/Bible"
+  // by stripping the last two path segments (Data/X)
+  function projectRoot(dataDir) {
+    return dataDir.replace(/\/Data\/[^/]+$/, "");
+  }
+
   // =====================================================================
   // BIBLE GENERATOR
   // =====================================================================
@@ -97,7 +103,8 @@ var LitGen = (function () {
           const ch = weightedPick(bookData.chapters, c => c.verses.length);
           const verse = pick(ch.verses);
           const ref = `${bookInfo.name} ${ch.chapter}:${verse.v}`;
-          const linkTarget = `Literary Generators/Source/Bible/${bookInfo.name}#Chapter ${ch.chapter}`;
+          const base = projectRoot(dataDir);
+          const linkTarget = `${base}/Source/Bible/${bookInfo.name}#Chapter ${ch.chapter}`;
           items.push({ text: verse.t, ref: ref, linkTarget: linkTarget });
         }
         renderResults(results, copyBtn, items);
@@ -172,7 +179,8 @@ var LitGen = (function () {
             workInfo = weightedPick(candidates, w => w.lines);
           }
           const workData = await loadJSON(dv, dataDir + "/" + workInfo.file);
-          const item = pickShakespeare(workData);
+          const base = projectRoot(dataDir);
+          const item = pickShakespeare(workData, base);
           items.push(item);
         }
         renderResults(results, copyBtn, items);
@@ -183,7 +191,7 @@ var LitGen = (function () {
   }
 
   // Pick a Shakespeare result with expandable layers
-  function pickShakespeare(workData) {
+  function pickShakespeare(workData, base) {
     const title = workData.title;
 
     if (workData.type === "play") {
@@ -192,7 +200,7 @@ var LitGen = (function () {
       const speech = pick(scene.speeches);
       const actRoman = toRoman(scene.act);
       const ref = `${title}, ${actRoman}.${scene.scene} — ${speech.c}`;
-      const linkTarget = `Literary Generators/Source/Shakespeare/${title}#Scene ${scene.scene}`;
+      const linkTarget = `${base}/Source/Shakespeare/${title}#Scene ${scene.scene}`;
 
       if (speech.speech.length <= 200 || speech.lines.length <= 1) {
         // Short speech — show the whole thing, no expand needed
@@ -214,7 +222,7 @@ var LitGen = (function () {
       // Pick a random sonnet, show a random line
       const sonnet = pick(workData.scenes);
       const ref = `Sonnet ${sonnet.scene}`;
-      const linkTarget = `Literary Generators/Source/Shakespeare/${title}#Sonnet ${sonnet.scene}`;
+      const linkTarget = `${base}/Source/Shakespeare/${title}#Sonnet ${sonnet.scene}`;
       const line = pick(sonnet.lines);
 
       // Find which stanza this line is in
@@ -238,7 +246,7 @@ var LitGen = (function () {
       const allStanzas = scene.stanzas || [];
       const line = pick(allLines);
       const ref = `${title}`;
-      const linkTarget = `Literary Generators/Source/Shakespeare/${title}#Stanza ${scene.scene}`;
+      const linkTarget = `${base}/Source/Shakespeare/${title}#Stanza ${scene.scene}`;
 
       // Find containing stanza
       let containingStanza = null;
@@ -311,7 +319,8 @@ var LitGen = (function () {
 
           const line = pick(poem.lines);
           const ref = `— ${authorData.author}, "${poem.title}"`;
-          const linkTarget = `Literary Generators/Source/Poetry/${authorData.author}#${poem.title}`;
+          const base = projectRoot(dataDir);
+          const linkTarget = `${base}/Source/Poetry/${authorData.author}#${poem.title}`;
 
           // Find containing stanza
           let containingStanza = null;

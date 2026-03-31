@@ -1,7 +1,7 @@
 # James Whitcomb Riley
 
 > 9 poems · 512 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

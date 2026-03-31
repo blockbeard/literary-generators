@@ -2,7 +2,7 @@
 
 > NT · 5 chapters · 105 verses
 
-Back to [[Literary Generators/Bible|Bible Generator]]
+Back to [Bible Generator](../../Bible.md)
 
 ---
 

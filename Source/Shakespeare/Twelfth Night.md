@@ -1,7 +1,7 @@
 # Twelfth Night
 
 > Play · 1599 · 2474 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

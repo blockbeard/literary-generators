@@ -1,7 +1,7 @@
 # Antony and Cleopatra
 
 > Play · 1606 · 3594 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

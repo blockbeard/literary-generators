@@ -1,7 +1,7 @@
 # Thomas Flatman
 
 > 1 poems · 19 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

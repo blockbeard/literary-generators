@@ -1,7 +1,7 @@
 # John Keats
 
 > 24 poems · 5645 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

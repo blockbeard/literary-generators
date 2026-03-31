@@ -1,7 +1,7 @@
 # Love's Labour's Lost
 
 > Play · 1594 · 2766 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

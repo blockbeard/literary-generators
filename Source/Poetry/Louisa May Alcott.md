@@ -1,7 +1,7 @@
 # Louisa May Alcott
 
 > 4 poems · 120 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

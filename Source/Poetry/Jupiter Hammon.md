@@ -1,7 +1,7 @@
 # Jupiter Hammon
 
 > 1 poems · 88 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

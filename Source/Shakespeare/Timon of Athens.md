@@ -1,7 +1,7 @@
 # Timon of Athens
 
 > Play · 1607 · 2469 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

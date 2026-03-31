@@ -1,7 +1,7 @@
 # Measure for Measure
 
 > Play · 1604 · 2843 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Henry VIII
 
 > Play · 1612 · 3344 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Rupert Brooke
 
 > 26 poems · 562 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

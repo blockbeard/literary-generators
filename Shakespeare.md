@@ -4,9 +4,10 @@
 > 114,461 lines across 43 works.
 
 ```dataviewjs
-const lib = await dv.io.load("Literary Generators/Lib/literary.js");
+const base = dv.current().file.folder;
+const lib = await dv.io.load(base + "/Lib/literary.js");
 const LitGen = new Function(lib + "; return LitGen;")();
-await LitGen.buildShakespeareUI(dv, "Literary Generators/Data/Shakespeare");
+await LitGen.buildShakespeareUI(dv, base + "/Data/Shakespeare");
 ```
 
 ---
@@ -17,51 +18,51 @@ await LitGen.buildShakespeareUI(dv, "Literary Generators/Data/Shakespeare");
 
 | Work | Genre | Lines |
 |------|-------|-------|
-| [[Literary Generators/Source/Shakespeare/All's Well That Ends Well\|All's Well That Ends Well]] | Comedy | 2,934 |
-| [[Literary Generators/Source/Shakespeare/Antony and Cleopatra\|Antony and Cleopatra]] | Tragedy | 3,594 |
-| [[Literary Generators/Source/Shakespeare/As You Like It\|As You Like It]] | Comedy | 2,602 |
-| [[Literary Generators/Source/Shakespeare/Comedy of Errors\|Comedy of Errors]] | Comedy | 1,802 |
-| [[Literary Generators/Source/Shakespeare/Coriolanus\|Coriolanus]] | Tragedy | 3,806 |
-| [[Literary Generators/Source/Shakespeare/Cymbeline\|Cymbeline]] | Comedy | 3,780 |
-| [[Literary Generators/Source/Shakespeare/Hamlet\|Hamlet]] | Tragedy | 4,003 |
-| [[Literary Generators/Source/Shakespeare/Henry IV, Part I\|Henry IV, Part I]] | History | 3,053 |
-| [[Literary Generators/Source/Shakespeare/Henry IV, Part II\|Henry IV, Part II]] | History | 3,145 |
-| [[Literary Generators/Source/Shakespeare/Henry V\|Henry V]] | History | 3,242 |
-| [[Literary Generators/Source/Shakespeare/Henry VI, Part I\|Henry VI, Part I]] | History | 2,749 |
-| [[Literary Generators/Source/Shakespeare/Henry VI, Part II\|Henry VI, Part II]] | History | 3,165 |
-| [[Literary Generators/Source/Shakespeare/Henry VI, Part III\|Henry VI, Part III]] | History | 2,969 |
-| [[Literary Generators/Source/Shakespeare/Henry VIII\|Henry VIII]] | History | 3,344 |
-| [[Literary Generators/Source/Shakespeare/Julius Caesar\|Julius Caesar]] | Tragedy | 2,708 |
-| [[Literary Generators/Source/Shakespeare/King John\|King John]] | History | 2,657 |
-| [[Literary Generators/Source/Shakespeare/King Lear\|King Lear]] | Tragedy | 3,483 |
-| [[Literary Generators/Source/Shakespeare/Love's Labour's Lost\|Love's Labour's Lost]] | Comedy | 2,766 |
-| [[Literary Generators/Source/Shakespeare/Macbeth\|Macbeth]] | Tragedy | 2,397 |
-| [[Literary Generators/Source/Shakespeare/Measure for Measure\|Measure for Measure]] | Comedy | 2,843 |
-| [[Literary Generators/Source/Shakespeare/Merchant of Venice\|Merchant of Venice]] | Comedy | 2,670 |
-| [[Literary Generators/Source/Shakespeare/Merry Wives of Windsor\|Merry Wives of Windsor]] | Comedy | 2,621 |
-| [[Literary Generators/Source/Shakespeare/Midsummer Night's Dream\|Midsummer Night's Dream]] | Comedy | 2,164 |
-| [[Literary Generators/Source/Shakespeare/Much Ado about Nothing\|Much Ado about Nothing]] | Comedy | 2,583 |
-| [[Literary Generators/Source/Shakespeare/Othello\|Othello]] | Tragedy | 3,557 |
-| [[Literary Generators/Source/Shakespeare/Pericles\|Pericles]] | Comedy | 2,490 |
-| [[Literary Generators/Source/Shakespeare/Richard II\|Richard II]] | History | 2,821 |
-| [[Literary Generators/Source/Shakespeare/Richard III\|Richard III]] | History | 3,709 |
-| [[Literary Generators/Source/Shakespeare/Romeo and Juliet\|Romeo and Juliet]] | Tragedy | 3,100 |
-| [[Literary Generators/Source/Shakespeare/Taming of the Shrew\|Taming of the Shrew]] | Comedy | 2,651 |
-| [[Literary Generators/Source/Shakespeare/Tempest\|Tempest]] | Comedy | 2,310 |
-| [[Literary Generators/Source/Shakespeare/The Winter's Tale\|The Winter's Tale]] | Comedy | 3,363 |
-| [[Literary Generators/Source/Shakespeare/Timon of Athens\|Timon of Athens]] | Tragedy | 2,469 |
-| [[Literary Generators/Source/Shakespeare/Titus Andronicus\|Titus Andronicus]] | Tragedy | 2,592 |
-| [[Literary Generators/Source/Shakespeare/Troilus and Cressida\|Troilus and Cressida]] | Tragedy | 3,500 |
-| [[Literary Generators/Source/Shakespeare/Twelfth Night\|Twelfth Night]] | Comedy | 2,474 |
-| [[Literary Generators/Source/Shakespeare/Two Gentlemen of Verona\|Two Gentlemen of Verona]] | Comedy | 2,234 |
+| [All's Well That Ends Well](Source/Shakespeare/All's Well That Ends Well\.md) | Comedy | 2,934 |
+| [Antony and Cleopatra](Source/Shakespeare/Antony and Cleopatra\.md) | Tragedy | 3,594 |
+| [As You Like It](Source/Shakespeare/As You Like It\.md) | Comedy | 2,602 |
+| [Comedy of Errors](Source/Shakespeare/Comedy of Errors\.md) | Comedy | 1,802 |
+| [Coriolanus](Source/Shakespeare/Coriolanus\.md) | Tragedy | 3,806 |
+| [Cymbeline](Source/Shakespeare/Cymbeline\.md) | Comedy | 3,780 |
+| [Hamlet](Source/Shakespeare/Hamlet\.md) | Tragedy | 4,003 |
+| [Henry IV, Part I](Source/Shakespeare/Henry IV, Part I\.md) | History | 3,053 |
+| [Henry IV, Part II](Source/Shakespeare/Henry IV, Part II\.md) | History | 3,145 |
+| [Henry V](Source/Shakespeare/Henry V\.md) | History | 3,242 |
+| [Henry VI, Part I](Source/Shakespeare/Henry VI, Part I\.md) | History | 2,749 |
+| [Henry VI, Part II](Source/Shakespeare/Henry VI, Part II\.md) | History | 3,165 |
+| [Henry VI, Part III](Source/Shakespeare/Henry VI, Part III\.md) | History | 2,969 |
+| [Henry VIII](Source/Shakespeare/Henry VIII\.md) | History | 3,344 |
+| [Julius Caesar](Source/Shakespeare/Julius Caesar\.md) | Tragedy | 2,708 |
+| [King John](Source/Shakespeare/King John\.md) | History | 2,657 |
+| [King Lear](Source/Shakespeare/King Lear\.md) | Tragedy | 3,483 |
+| [Love's Labour's Lost](Source/Shakespeare/Love's Labour's Lost\.md) | Comedy | 2,766 |
+| [Macbeth](Source/Shakespeare/Macbeth\.md) | Tragedy | 2,397 |
+| [Measure for Measure](Source/Shakespeare/Measure for Measure\.md) | Comedy | 2,843 |
+| [Merchant of Venice](Source/Shakespeare/Merchant of Venice\.md) | Comedy | 2,670 |
+| [Merry Wives of Windsor](Source/Shakespeare/Merry Wives of Windsor\.md) | Comedy | 2,621 |
+| [Midsummer Night's Dream](Source/Shakespeare/Midsummer Night's Dream\.md) | Comedy | 2,164 |
+| [Much Ado about Nothing](Source/Shakespeare/Much Ado about Nothing\.md) | Comedy | 2,583 |
+| [Othello](Source/Shakespeare/Othello\.md) | Tragedy | 3,557 |
+| [Pericles](Source/Shakespeare/Pericles\.md) | Comedy | 2,490 |
+| [Richard II](Source/Shakespeare/Richard II\.md) | History | 2,821 |
+| [Richard III](Source/Shakespeare/Richard III\.md) | History | 3,709 |
+| [Romeo and Juliet](Source/Shakespeare/Romeo and Juliet\.md) | Tragedy | 3,100 |
+| [Taming of the Shrew](Source/Shakespeare/Taming of the Shrew\.md) | Comedy | 2,651 |
+| [Tempest](Source/Shakespeare/Tempest\.md) | Comedy | 2,310 |
+| [The Winter's Tale](Source/Shakespeare/The Winter's Tale\.md) | Comedy | 3,363 |
+| [Timon of Athens](Source/Shakespeare/Timon of Athens\.md) | Tragedy | 2,469 |
+| [Titus Andronicus](Source/Shakespeare/Titus Andronicus\.md) | Tragedy | 2,592 |
+| [Troilus and Cressida](Source/Shakespeare/Troilus and Cressida\.md) | Tragedy | 3,500 |
+| [Twelfth Night](Source/Shakespeare/Twelfth Night\.md) | Comedy | 2,474 |
+| [Two Gentlemen of Verona](Source/Shakespeare/Two Gentlemen of Verona\.md) | Comedy | 2,234 |
 
 ### Sonnets and Poems
 
 | Work | Lines |
 |------|-------|
-| [[Literary Generators/Source/Shakespeare/Lover's Complaint\|Lover's Complaint]] | 331 |
-| [[Literary Generators/Source/Shakespeare/Passionate Pilgrim\|Passionate Pilgrim]] | 430 |
-| [[Literary Generators/Source/Shakespeare/Phoenix and the Turtle\|Phoenix and the Turtle]] | 68 |
-| [[Literary Generators/Source/Shakespeare/Rape of Lucrece\|Rape of Lucrece]] | 1,909 |
-| [[Literary Generators/Source/Shakespeare/Sonnets\|Sonnets]] | 2,157 |
-| [[Literary Generators/Source/Shakespeare/Venus and Adonis\|Venus and Adonis]] | 1,216 |
+| [Lover's Complaint](Source/Shakespeare/Lover's Complaint\.md) | 331 |
+| [Passionate Pilgrim](Source/Shakespeare/Passionate Pilgrim\.md) | 430 |
+| [Phoenix and the Turtle](Source/Shakespeare/Phoenix and the Turtle\.md) | 68 |
+| [Rape of Lucrece](Source/Shakespeare/Rape of Lucrece\.md) | 1,909 |
+| [Sonnets](Source/Shakespeare/Sonnets\.md) | 2,157 |
+| [Venus and Adonis](Source/Shakespeare/Venus and Adonis\.md) | 1,216 |

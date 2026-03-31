@@ -1,7 +1,7 @@
 # Tempest
 
 > Play · 1611 · 2310 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Percy Bysshe Shelley
 
 > 286 poems · 37350 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

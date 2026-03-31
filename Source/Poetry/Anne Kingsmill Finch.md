@@ -1,7 +1,7 @@
 # Anne Kingsmill Finch
 
 > 12 poems · 632 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

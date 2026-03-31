@@ -1,7 +1,7 @@
 # John Wilmot
 
 > 6 poems · 519 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

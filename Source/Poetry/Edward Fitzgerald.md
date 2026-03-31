@@ -1,7 +1,7 @@
 # Edward Fitzgerald
 
 > 2 poems · 95 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

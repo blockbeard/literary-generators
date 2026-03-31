@@ -1,7 +1,7 @@
 # Henry IV, Part I
 
 > Play · 1597 · 3053 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

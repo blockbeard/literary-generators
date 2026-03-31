@@ -1,7 +1,7 @@
 # Sir Philip Sidney
 
 > 11 poems · 154 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

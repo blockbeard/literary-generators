@@ -1,7 +1,7 @@
 # As You Like It
 
 > Play · 1599 · 2602 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

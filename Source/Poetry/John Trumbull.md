@@ -1,7 +1,7 @@
 # John Trumbull
 
 > 4 poems · 2644 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

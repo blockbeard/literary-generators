@@ -1,7 +1,7 @@
 # Alexander Pope
 
 > 63 poems · 9080 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

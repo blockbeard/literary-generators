@@ -1,7 +1,7 @@
 # Sidney Lanier
 
 > 17 poems · 2108 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

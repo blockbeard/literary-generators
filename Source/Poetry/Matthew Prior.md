@@ -1,7 +1,7 @@
 # Matthew Prior
 
 > 3 poems · 63 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

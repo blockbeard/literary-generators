@@ -1,7 +1,7 @@
 # George Gordon, Lord Byron
 
 > 303 poems · 69106 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

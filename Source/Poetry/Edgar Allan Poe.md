@@ -1,7 +1,7 @@
 # Edgar Allan Poe
 
 > 47 poems · 2249 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

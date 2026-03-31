@@ -19,7 +19,7 @@ Each generator returns a random fragment with a clickable link to the full sourc
 
 ## Try it online
 
-You can use the generators right now at the [GitHub Pages site](https://YOURUSERNAME.github.io/literary-generators/) — no download or setup needed.
+You can use the generators right now at the [GitHub Pages site](https://blockbeard.github.io/literary-generators/) — no download or setup needed.
 
 If you want the full Obsidian experience with wiki-linked source texts, instructions below.
 
@@ -27,10 +27,7 @@ If you want the full Obsidian experience with wiki-linked source texts, instruct
 
 ### Option A: Open as a standalone vault
 
-1. **Download the repo** — click the green **Code** button above, then **Download ZIP**, and unzip it somewhere on your computer. Or clone it:
-   ```bash
-   git clone https://github.com/YOURUSERNAME/literary-generators.git
-   ```
+1. **Download the repo** — click the green **Code** button above, then **Download ZIP**, and unzip it somewhere on your computer. Or if you are git-savvy clone it. 
 2. **Open as a vault** — in Obsidian, click **Open another vault** (the vault icon in the bottom-left), then **Open folder as vault**, and select the `literary-generators` folder.
 3. **Install Dataview** — see [Setting up Dataview](#setting-up-dataview) below.
 4. Open `Index.md` and start generating.
@@ -42,7 +39,7 @@ If you want the full Obsidian experience with wiki-linked source texts, instruct
 3. **Install Dataview** if you haven't already — see below.
 4. Navigate to `Literary Generators/Index.md` (or whatever you named the folder) and start generating.
 
-> **Note:** If you rename the folder, the internal wiki-links in the source browse tables (Bible.md, Shakespeare.md, Poetry.md) will break. The generators themselves will still work — they use relative paths. You can fix the browse tables by find-and-replacing `Literary Generators/` with your new folder name.
+> **Note:** All links are relative, so you can rename the folder to whatever you like and everything will still work.
 
 ### Setting up Dataview
 

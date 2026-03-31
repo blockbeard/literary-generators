@@ -1,7 +1,7 @@
 # Lord Alfred Tennyson
 
 > 45 poems · 12469 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

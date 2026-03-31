@@ -1,7 +1,7 @@
 # Coriolanus
 
 > Play · 1607 · 3806 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

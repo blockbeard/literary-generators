@@ -1,7 +1,7 @@
 # Eugene Field
 
 > 32 poems · 1395 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

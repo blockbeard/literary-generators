@@ -1,7 +1,7 @@
 # Robert Browning
 
 > 66 poems · 7429 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # William Cowper
 
 > 23 poems · 961 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

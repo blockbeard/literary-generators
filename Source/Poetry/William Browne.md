@@ -1,7 +1,7 @@
 # William Browne
 
 > 2 poems · 32 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

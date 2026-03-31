@@ -1,7 +1,7 @@
 # Robert Louis Stevenson
 
 > 44 poems · 921 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Rape of Lucrece
 
 > Poem · 1594 · 1909 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

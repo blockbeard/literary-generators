@@ -4,9 +4,10 @@
 > 31,102 verses across 66 books.
 
 ```dataviewjs
-const lib = await dv.io.load("Literary Generators/Lib/literary.js");
+const base = dv.current().file.folder;
+const lib = await dv.io.load(base + "/Lib/literary.js");
 const LitGen = new Function(lib + "; return LitGen;")();
-await LitGen.buildBibleUI(dv, "Literary Generators/Data/Bible");
+await LitGen.buildBibleUI(dv, base + "/Data/Bible");
 ```
 
 ---
@@ -17,74 +18,74 @@ await LitGen.buildBibleUI(dv, "Literary Generators/Data/Bible");
 
 | Book | Chapters | Verses |
 |------|----------|--------|
-| [[Literary Generators/Source/Bible/Genesis\|Genesis]] | 50 | 1533 |
-| [[Literary Generators/Source/Bible/Exodus\|Exodus]] | 40 | 1213 |
-| [[Literary Generators/Source/Bible/Leviticus\|Leviticus]] | 27 | 859 |
-| [[Literary Generators/Source/Bible/Numbers\|Numbers]] | 36 | 1288 |
-| [[Literary Generators/Source/Bible/Deuteronomy\|Deuteronomy]] | 34 | 959 |
-| [[Literary Generators/Source/Bible/Joshua\|Joshua]] | 24 | 658 |
-| [[Literary Generators/Source/Bible/Judges\|Judges]] | 21 | 618 |
-| [[Literary Generators/Source/Bible/Ruth\|Ruth]] | 4 | 85 |
-| [[Literary Generators/Source/Bible/1 Samuel\|1 Samuel]] | 31 | 810 |
-| [[Literary Generators/Source/Bible/2 Samuel\|2 Samuel]] | 24 | 695 |
-| [[Literary Generators/Source/Bible/1 Kings\|1 Kings]] | 22 | 816 |
-| [[Literary Generators/Source/Bible/2 Kings\|2 Kings]] | 25 | 719 |
-| [[Literary Generators/Source/Bible/1 Chronicles\|1 Chronicles]] | 29 | 942 |
-| [[Literary Generators/Source/Bible/2 Chronicles\|2 Chronicles]] | 36 | 822 |
-| [[Literary Generators/Source/Bible/Ezra\|Ezra]] | 10 | 280 |
-| [[Literary Generators/Source/Bible/Nehemiah\|Nehemiah]] | 13 | 406 |
-| [[Literary Generators/Source/Bible/Esther\|Esther]] | 10 | 167 |
-| [[Literary Generators/Source/Bible/Job\|Job]] | 42 | 1070 |
-| [[Literary Generators/Source/Bible/Psalms\|Psalms]] | 150 | 2461 |
-| [[Literary Generators/Source/Bible/Proverbs\|Proverbs]] | 31 | 915 |
-| [[Literary Generators/Source/Bible/Ecclesiastes\|Ecclesiastes]] | 12 | 222 |
-| [[Literary Generators/Source/Bible/Song of Solomon\|Song of Solomon]] | 8 | 117 |
-| [[Literary Generators/Source/Bible/Isaiah\|Isaiah]] | 66 | 1292 |
-| [[Literary Generators/Source/Bible/Jeremiah\|Jeremiah]] | 52 | 1364 |
-| [[Literary Generators/Source/Bible/Lamentations\|Lamentations]] | 5 | 154 |
-| [[Literary Generators/Source/Bible/Ezekiel\|Ezekiel]] | 48 | 1273 |
-| [[Literary Generators/Source/Bible/Daniel\|Daniel]] | 12 | 357 |
-| [[Literary Generators/Source/Bible/Hosea\|Hosea]] | 14 | 197 |
-| [[Literary Generators/Source/Bible/Joel\|Joel]] | 3 | 73 |
-| [[Literary Generators/Source/Bible/Amos\|Amos]] | 9 | 146 |
-| [[Literary Generators/Source/Bible/Obadiah\|Obadiah]] | 1 | 21 |
-| [[Literary Generators/Source/Bible/Jonah\|Jonah]] | 4 | 48 |
-| [[Literary Generators/Source/Bible/Micah\|Micah]] | 7 | 105 |
-| [[Literary Generators/Source/Bible/Nahum\|Nahum]] | 3 | 47 |
-| [[Literary Generators/Source/Bible/Habakkuk\|Habakkuk]] | 3 | 56 |
-| [[Literary Generators/Source/Bible/Zephaniah\|Zephaniah]] | 3 | 53 |
-| [[Literary Generators/Source/Bible/Haggai\|Haggai]] | 2 | 38 |
-| [[Literary Generators/Source/Bible/Zechariah\|Zechariah]] | 14 | 211 |
-| [[Literary Generators/Source/Bible/Malachi\|Malachi]] | 4 | 55 |
+| [Genesis](Source/Bible/Genesis\.md) | 50 | 1533 |
+| [Exodus](Source/Bible/Exodus\.md) | 40 | 1213 |
+| [Leviticus](Source/Bible/Leviticus\.md) | 27 | 859 |
+| [Numbers](Source/Bible/Numbers\.md) | 36 | 1288 |
+| [Deuteronomy](Source/Bible/Deuteronomy\.md) | 34 | 959 |
+| [Joshua](Source/Bible/Joshua\.md) | 24 | 658 |
+| [Judges](Source/Bible/Judges\.md) | 21 | 618 |
+| [Ruth](Source/Bible/Ruth\.md) | 4 | 85 |
+| [1 Samuel](Source/Bible/1 Samuel\.md) | 31 | 810 |
+| [2 Samuel](Source/Bible/2 Samuel\.md) | 24 | 695 |
+| [1 Kings](Source/Bible/1 Kings\.md) | 22 | 816 |
+| [2 Kings](Source/Bible/2 Kings\.md) | 25 | 719 |
+| [1 Chronicles](Source/Bible/1 Chronicles\.md) | 29 | 942 |
+| [2 Chronicles](Source/Bible/2 Chronicles\.md) | 36 | 822 |
+| [Ezra](Source/Bible/Ezra\.md) | 10 | 280 |
+| [Nehemiah](Source/Bible/Nehemiah\.md) | 13 | 406 |
+| [Esther](Source/Bible/Esther\.md) | 10 | 167 |
+| [Job](Source/Bible/Job\.md) | 42 | 1070 |
+| [Psalms](Source/Bible/Psalms\.md) | 150 | 2461 |
+| [Proverbs](Source/Bible/Proverbs\.md) | 31 | 915 |
+| [Ecclesiastes](Source/Bible/Ecclesiastes\.md) | 12 | 222 |
+| [Song of Solomon](Source/Bible/Song of Solomon\.md) | 8 | 117 |
+| [Isaiah](Source/Bible/Isaiah\.md) | 66 | 1292 |
+| [Jeremiah](Source/Bible/Jeremiah\.md) | 52 | 1364 |
+| [Lamentations](Source/Bible/Lamentations\.md) | 5 | 154 |
+| [Ezekiel](Source/Bible/Ezekiel\.md) | 48 | 1273 |
+| [Daniel](Source/Bible/Daniel\.md) | 12 | 357 |
+| [Hosea](Source/Bible/Hosea\.md) | 14 | 197 |
+| [Joel](Source/Bible/Joel\.md) | 3 | 73 |
+| [Amos](Source/Bible/Amos\.md) | 9 | 146 |
+| [Obadiah](Source/Bible/Obadiah\.md) | 1 | 21 |
+| [Jonah](Source/Bible/Jonah\.md) | 4 | 48 |
+| [Micah](Source/Bible/Micah\.md) | 7 | 105 |
+| [Nahum](Source/Bible/Nahum\.md) | 3 | 47 |
+| [Habakkuk](Source/Bible/Habakkuk\.md) | 3 | 56 |
+| [Zephaniah](Source/Bible/Zephaniah\.md) | 3 | 53 |
+| [Haggai](Source/Bible/Haggai\.md) | 2 | 38 |
+| [Zechariah](Source/Bible/Zechariah\.md) | 14 | 211 |
+| [Malachi](Source/Bible/Malachi\.md) | 4 | 55 |
 
 ### New Testament
 
 | Book | Chapters | Verses |
 |------|----------|--------|
-| [[Literary Generators/Source/Bible/Matthew\|Matthew]] | 28 | 1071 |
-| [[Literary Generators/Source/Bible/Mark\|Mark]] | 16 | 678 |
-| [[Literary Generators/Source/Bible/Luke\|Luke]] | 24 | 1151 |
-| [[Literary Generators/Source/Bible/John\|John]] | 21 | 879 |
-| [[Literary Generators/Source/Bible/Acts\|Acts]] | 28 | 1007 |
-| [[Literary Generators/Source/Bible/Romans\|Romans]] | 16 | 433 |
-| [[Literary Generators/Source/Bible/1 Corinthians\|1 Corinthians]] | 16 | 437 |
-| [[Literary Generators/Source/Bible/2 Corinthians\|2 Corinthians]] | 13 | 257 |
-| [[Literary Generators/Source/Bible/Galatians\|Galatians]] | 6 | 149 |
-| [[Literary Generators/Source/Bible/Ephesians\|Ephesians]] | 6 | 155 |
-| [[Literary Generators/Source/Bible/Philippians\|Philippians]] | 4 | 104 |
-| [[Literary Generators/Source/Bible/Colossians\|Colossians]] | 4 | 95 |
-| [[Literary Generators/Source/Bible/1 Thessalonians\|1 Thessalonians]] | 5 | 89 |
-| [[Literary Generators/Source/Bible/2 Thessalonians\|2 Thessalonians]] | 3 | 47 |
-| [[Literary Generators/Source/Bible/1 Timothy\|1 Timothy]] | 6 | 113 |
-| [[Literary Generators/Source/Bible/2 Timothy\|2 Timothy]] | 4 | 83 |
-| [[Literary Generators/Source/Bible/Titus\|Titus]] | 3 | 46 |
-| [[Literary Generators/Source/Bible/Philemon\|Philemon]] | 1 | 25 |
-| [[Literary Generators/Source/Bible/Hebrews\|Hebrews]] | 13 | 303 |
-| [[Literary Generators/Source/Bible/James\|James]] | 5 | 108 |
-| [[Literary Generators/Source/Bible/1 Peter\|1 Peter]] | 5 | 105 |
-| [[Literary Generators/Source/Bible/2 Peter\|2 Peter]] | 3 | 61 |
-| [[Literary Generators/Source/Bible/1 John\|1 John]] | 5 | 105 |
-| [[Literary Generators/Source/Bible/2 John\|2 John]] | 1 | 13 |
-| [[Literary Generators/Source/Bible/3 John\|3 John]] | 1 | 14 |
-| [[Literary Generators/Source/Bible/Jude\|Jude]] | 1 | 25 |
-| [[Literary Generators/Source/Bible/Revelation\|Revelation]] | 22 | 404 |
+| [Matthew](Source/Bible/Matthew\.md) | 28 | 1071 |
+| [Mark](Source/Bible/Mark\.md) | 16 | 678 |
+| [Luke](Source/Bible/Luke\.md) | 24 | 1151 |
+| [John](Source/Bible/John\.md) | 21 | 879 |
+| [Acts](Source/Bible/Acts\.md) | 28 | 1007 |
+| [Romans](Source/Bible/Romans\.md) | 16 | 433 |
+| [1 Corinthians](Source/Bible/1 Corinthians\.md) | 16 | 437 |
+| [2 Corinthians](Source/Bible/2 Corinthians\.md) | 13 | 257 |
+| [Galatians](Source/Bible/Galatians\.md) | 6 | 149 |
+| [Ephesians](Source/Bible/Ephesians\.md) | 6 | 155 |
+| [Philippians](Source/Bible/Philippians\.md) | 4 | 104 |
+| [Colossians](Source/Bible/Colossians\.md) | 4 | 95 |
+| [1 Thessalonians](Source/Bible/1 Thessalonians\.md) | 5 | 89 |
+| [2 Thessalonians](Source/Bible/2 Thessalonians\.md) | 3 | 47 |
+| [1 Timothy](Source/Bible/1 Timothy\.md) | 6 | 113 |
+| [2 Timothy](Source/Bible/2 Timothy\.md) | 4 | 83 |
+| [Titus](Source/Bible/Titus\.md) | 3 | 46 |
+| [Philemon](Source/Bible/Philemon\.md) | 1 | 25 |
+| [Hebrews](Source/Bible/Hebrews\.md) | 13 | 303 |
+| [James](Source/Bible/James\.md) | 5 | 108 |
+| [1 Peter](Source/Bible/1 Peter\.md) | 5 | 105 |
+| [2 Peter](Source/Bible/2 Peter\.md) | 3 | 61 |
+| [1 John](Source/Bible/1 John\.md) | 5 | 105 |
+| [2 John](Source/Bible/2 John\.md) | 1 | 13 |
+| [3 John](Source/Bible/3 John\.md) | 1 | 14 |
+| [Jude](Source/Bible/Jude\.md) | 1 | 25 |
+| [Revelation](Source/Bible/Revelation\.md) | 22 | 404 |

@@ -1,7 +1,7 @@
 # Oscar Wilde
 
 > 10 poems · 1626 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

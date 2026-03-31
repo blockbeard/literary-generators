@@ -1,7 +1,7 @@
 # Adam Lindsay Gordon
 
 > 2 poems · 72 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

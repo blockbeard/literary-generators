@@ -1,7 +1,7 @@
 # Charles Sorley
 
 > 2 poems · 111 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

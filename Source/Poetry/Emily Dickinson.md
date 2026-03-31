@@ -1,7 +1,7 @@
 # Emily Dickinson
 
 > 362 poems · 4183 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

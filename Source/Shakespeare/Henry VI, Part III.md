@@ -1,7 +1,7 @@
 # Henry VI, Part III
 
 > Play · 1590 · 2969 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

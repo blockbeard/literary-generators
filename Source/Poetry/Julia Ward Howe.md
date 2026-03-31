@@ -1,7 +1,7 @@
 # Julia Ward Howe
 
 > 3 poems · 115 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

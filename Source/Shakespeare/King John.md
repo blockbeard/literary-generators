@@ -1,7 +1,7 @@
 # King John
 
 > Play · 1596 · 2657 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

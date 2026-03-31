@@ -1,7 +1,7 @@
 # Macbeth
 
 > Play · 1605 · 2397 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

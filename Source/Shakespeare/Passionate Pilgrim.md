@@ -1,7 +1,7 @@
 # Passionate Pilgrim
 
 > Poem · 1598 · 430 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

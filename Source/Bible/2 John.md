@@ -2,7 +2,7 @@
 
 > NT · 1 chapters · 13 verses
 
-Back to [[Literary Generators/Bible|Bible Generator]]
+Back to [Bible Generator](../../Bible.md)
 
 ---
 

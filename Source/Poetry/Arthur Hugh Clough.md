@@ -1,7 +1,7 @@
 # Arthur Hugh Clough
 
 > 3 poems · 92 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

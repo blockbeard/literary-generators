@@ -1,7 +1,7 @@
 # Ralph Waldo Emerson
 
 > 5 poems · 280 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

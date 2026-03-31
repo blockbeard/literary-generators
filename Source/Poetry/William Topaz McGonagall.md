@@ -1,7 +1,7 @@
 # William Topaz McGonagall
 
 > 74 poems · 3719 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

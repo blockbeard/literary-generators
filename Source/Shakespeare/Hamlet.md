@@ -1,7 +1,7 @@
 # Hamlet
 
 > Play · 1600 · 4003 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Thomas Chatterton
 
 > 3 poems · 255 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

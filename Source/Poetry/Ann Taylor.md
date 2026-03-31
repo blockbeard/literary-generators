@@ -1,7 +1,7 @@
 # Ann Taylor
 
 > 5 poems · 114 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

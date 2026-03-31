@@ -1,7 +1,7 @@
 # Taming of the Shrew
 
 > Play · 1593 · 2651 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

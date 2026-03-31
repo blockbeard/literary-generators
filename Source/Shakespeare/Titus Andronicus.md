@@ -1,7 +1,7 @@
 # Titus Andronicus
 
 > Play · 1593 · 2592 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

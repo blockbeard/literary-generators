@@ -1,7 +1,7 @@
 # Richard Lovelace
 
 > 1 poems · 24 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

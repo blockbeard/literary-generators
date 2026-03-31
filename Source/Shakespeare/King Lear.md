@@ -1,7 +1,7 @@
 # King Lear
 
 > Play · 1605 · 3483 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

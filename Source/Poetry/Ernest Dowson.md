@@ -1,7 +1,7 @@
 # Ernest Dowson
 
 > 1 poems · 16 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Much Ado about Nothing
 
 > Play · 1598 · 2583 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

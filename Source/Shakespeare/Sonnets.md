@@ -1,7 +1,7 @@
 # Sonnets
 
 > Sonnet · 1609 · 2157 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

@@ -1,7 +1,7 @@
 # Henry Vaughan
 
 > 6 poems · 184 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

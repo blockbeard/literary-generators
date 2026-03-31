@@ -1,7 +1,7 @@
 # John Clare
 
 > 132 poems · 4990 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

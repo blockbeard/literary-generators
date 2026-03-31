@@ -1,7 +1,7 @@
 # Two Gentlemen of Verona
 
 > Play · 1594 · 2234 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

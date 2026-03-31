@@ -1,7 +1,7 @@
 # William Morris
 
 > 12 poems · 2025 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

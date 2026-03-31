@@ -1,7 +1,7 @@
 # William Lisle Bowles
 
 > 2 poems · 50 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

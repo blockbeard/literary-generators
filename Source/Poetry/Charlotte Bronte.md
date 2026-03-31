@@ -1,7 +1,7 @@
 # Charlotte Bronte
 
 > 7 poems · 448 lines
-> Back to [[Literary Generators/Poetry|Poetry Generator]]
+> Back to [Poetry Generator](../../Poetry.md)
 
 ---
 

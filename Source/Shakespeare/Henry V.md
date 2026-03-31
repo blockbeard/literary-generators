@@ -1,7 +1,7 @@
 # Henry V
 
 > Play · 1598 · 3242 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 

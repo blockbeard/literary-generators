@@ -1,7 +1,7 @@
 # The Winter's Tale
 
 > Play · 1610 · 3363 lines
-> Back to [[Literary Generators/Shakespeare|Shakespeare Generator]]
+> Back to [Shakespeare Generator](../../Shakespeare.md)
 
 ---
 
