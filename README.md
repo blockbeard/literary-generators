@@ -3,8 +3,9 @@
 Random inspiration from the public domain canon.
 
 I wanted a way to spark ideas during tabletop RPG session prep — a random Bible verse, a line of Shakespeare, a fragment of poetry. Not for any scholarly purpose, just to see what the dice (so to speak) throw up and let it nudge a scene, a name, a mood.
+They could also be useful for inspiration for other things, writing prompts, your own art or poetry. Anything that needs a creative spark.
 
-The Bible and the Complete Works of Shakespeare are traditional touchstones — endlessly quotable and full of drama, treachery, beauty, and weirdness. There's also a vast wealth of out-of-copyright poetry that most of us have barely scratched the surface of. This vault puts all three at your fingertips.
+The Bible and the Complete Works of Shakespeare are traditional touchstones — endlessly quotable and full of drama, treachery, beauty, and weirdness. There's also a vast wealth of out-of-copyright poetry that most of us have barely scratched the surface of. 
 
 ## What's in the box
 
@@ -16,14 +17,49 @@ The Bible and the Complete Works of Shakespeare are traditional touchstones — 
 
 Each generator returns a random fragment with a clickable link to the full source text. Shakespeare and Poetry results have expandable layers — click to go from a single line to the containing stanza or speech, then to the full poem or sonnet.
 
-## How to use
+## Try it online
 
-1. Download or clone this repo
-2. Open the folder as an Obsidian vault (or copy it into an existing vault)
-3. Make sure the **Dataview** community plugin is installed and enabled, with **Enable JavaScript Queries** turned on in its settings
-4. Open `Index.md` and pick a generator
+You can use the generators right now at the [GitHub Pages site](https://YOURUSERNAME.github.io/literary-generators/) — no download or setup needed.
 
-No other plugins are required.
+If you want the full Obsidian experience with wiki-linked source texts, instructions below.
+
+## Download and setup
+
+### Option A: Open as a standalone vault
+
+1. **Download the repo** — click the green **Code** button above, then **Download ZIP**, and unzip it somewhere on your computer. Or clone it:
+   ```bash
+   git clone https://github.com/YOURUSERNAME/literary-generators.git
+   ```
+2. **Open as a vault** — in Obsidian, click **Open another vault** (the vault icon in the bottom-left), then **Open folder as vault**, and select the `literary-generators` folder.
+3. **Install Dataview** — see [Setting up Dataview](#setting-up-dataview) below.
+4. Open `Index.md` and start generating.
+
+### Option B: Add to an existing vault
+
+1. **Download the repo** as above.
+2. **Copy the folder** into your existing vault — just drag the whole `literary-generators` folder (or its contents) into your vault's root folder.
+3. **Install Dataview** if you haven't already — see below.
+4. Navigate to `Literary Generators/Index.md` (or whatever you named the folder) and start generating.
+
+> **Note:** If you rename the folder, the internal wiki-links in the source browse tables (Bible.md, Shakespeare.md, Poetry.md) will break. The generators themselves will still work — they use relative paths. You can fix the browse tables by find-and-replacing `Literary Generators/` with your new folder name.
+
+### Setting up Dataview
+
+The generators need the **Dataview** community plugin with JavaScript queries enabled.
+
+1. In Obsidian, go to **Settings** → **Community plugins**
+2. If you haven't already, turn off **Restricted mode** to allow community plugins
+3. Click **Browse**, search for **Dataview**, and install it
+4. **Enable** the plugin
+5. Go to **Settings** → **Dataview** and turn on **Enable JavaScript Queries**
+6. Close settings — the generator notes should now render
+
+If you see a code block instead of a generator UI, JavaScript queries aren't enabled (step 5).
+
+## A note on use
+
+This is for humans. Read the words, let them inspire you, see what they shake loose. Don't pipe them into an LLM, a training dataset, or an automated content pipeline. The whole point is that a real person wrote these words centuries ago and they might spark something in a real person today. A machine in the middle defeats the purpose.
 
 ## How it works
 
@@ -62,3 +98,5 @@ This project (engine code, JSON data structures, and markdown files) is released
 ## Credits
 
 Built with the help of Claude (Anthropic). All the interesting words belong to their original authors.
+I know people don't love AI. And I don't blame them, to me this was a good use of it. It coded me a tool to serve inspiration from real humans designed to inspire real humans.
+Just don't use it to write the damn poetry

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literary Generators</title>
+  <style>
+    :root {
+      --bg: #1e1e2e;
+      --bg-surface: #262637;
+      --bg-hover: #2e2e42;
+      --text: #cdd6f4;
+      --text-muted: #9399b2;
+      --accent: #89b4fa;
+      --accent-hover: #b4d0fb;
+      --border: #45475a;
+      --quote-border: #585b70;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #eff1f5;
+        --bg-surface: #e6e9ef;
+        --bg-hover: #dce0e8;
+        --text: #4c4f69;
+        --text-muted: #7c7f93;
+        --accent: #1e66f5;
+        --accent-hover: #2a7bff;
+        --border: #ccd0da;
+        --quote-border: #9ca0b0;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    header .repo-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    header .repo-link:hover {
+      background: var(--bg-hover);
+      color: var(--accent-hover);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab {
+      padding: 10px 24px;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .tab:hover { color: var(--text); }
+
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .generator { display: none; }
+    .generator.active { display: block; }
+
+    .filter-row, .control-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    label.filter-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    select, button {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 6px 12px;
+      background: var(--bg-surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    select { max-width: 260px; }
+
+    button {
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: var(--bg-hover); }
+
+    button.generate-btn {
+      padding: 6px 20px;
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    button.generate-btn:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .results { margin-top: 16px; }
+
+    .result-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .result-quote {
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .result-attr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .result-ref {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .expand-area { margin-top: 6px; }
+
+    .expand-btn {
+      font-size: 11px;
+      padding: 2px 8px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .expand-content {
+      display: none;
+      white-space: pre-line;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-left: 3px solid var(--quote-border);
+      background: var(--bg-surface);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .expand-content.visible { display: block; }
+
+    .copy-btn {
+      font-size: 11px;
+      padding: 2px 8px;
+      flex-shrink: 0;
+    }
+
+    .copy-all-btn {
+      font-size: 11px;
+      padding: 4px 12px;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .copy-all-btn.visible { display: inline-block; }
+
+    .note {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .note p { margin-bottom: 8px; }
+
+    .note a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .note a:hover { text-decoration: underline; }
+
+    .error { color: #f38ba8; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Literary Generators</h1>
+      <p>Random inspiration from the public domain canon.</p>
+      <a class="repo-link" href="https://github.com/YOURUSERNAME/literary-generators">
+        Download for Obsidian
+      </a>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="bible">Bible</button>
+      <button class="tab" data-tab="shakespeare">Shakespeare</button>
+      <button class="tab" data-tab="poetry">Poetry</button>
+    </div>
+
+    <!-- BIBLE -->
+    <div class="generator active" id="gen-bible">
+      <div class="filter-row">
+        <label class="filter-label">Testament:</label>
+        <select id="bible-testament">
+          <option value="any">Any</option>
+          <option value="OT">Old Testament</option>
+          <option value="NT">New Testament</option>
+        </select>
+        <label class="filter-label">Book:</label>
+        <select id="bible-book"></select>
+      </div>
+      <div class="control-row">
+        <label class="filter-label">Verses:</label>
+        <select id="bible-count">
+          <option>1</option><option>3</option><option>5</option><option>10</option>
+        </select>
+        <button class="generate-btn" id="bible-gen">Generate</button>
+      </div>
+      <div class="results" id="bible-results"></div>
+      <button class="copy-all-btn" id="bible-copyall">Copy All</button>
+    </div>
+
+    <!-- SHAKESPEARE -->
+    <div class="generator" id="gen-shakespeare">
+      <div class="filter-row">
+        <label class="filter-label">Type:</label>
+        <select id="shk-type">
+          <option value="any">Any</option>
+          <option value="play">Play</option>
+          <option value="sonnet">Sonnet</option>
+          <option value="poem">Poem</option>
+        </select>
+        <label class="filter-label">Work:</label>
+        <select id="shk-work"></select>
+      </div>
+      <div class="control-row">
+        <label class="filter-label">Count:</label>
+        <select id="shk-count">
+          <option>1</option><option>3</option><option>5</option><option>10</option>
+        </select>
+        <button class="generate-btn" id="shk-gen">Generate</button>
+      </div>
+      <div class="results" id="shk-results"></div>
+      <button class="copy-all-btn" id="shk-copyall">Copy All</button>
+    </div>
+
+    <!-- POETRY -->
+    <div class="generator" id="gen-poetry">
+      <div class="filter-row">
+        <label class="filter-label">Poet:</label>
+        <select id="poetry-poet"></select>
+      </div>
+      <div class="control-row">
+        <label class="filter-label">Count:</label>
+        <select id="poetry-count">
+          <option>1</option><option>3</option><option>5</option><option>10</option>
+        </select>
+        <button class="generate-btn" id="poetry-gen">Generate</button>
+      </div>
+      <div class="results" id="poetry-results"></div>
+      <button class="copy-all-btn" id="poetry-copyall">Copy All</button>
+    </div>
+
+    <div class="note">
+      <p>All texts are public domain. This project is <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 licensed</a>.</p>
+      <p>This is for humans. Read the words, let them spark something. Don't feed them to a machine.</p>
+      <p><a href="https://github.com/YOURUSERNAME/literary-generators">Download the Obsidian vault</a> for offline use with linked source texts.</p>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
