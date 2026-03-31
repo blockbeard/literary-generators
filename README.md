@@ -59,7 +59,7 @@ If you see a code block instead of a generator UI, JavaScript queries aren't ena
 
 ## A note on use
 
-This is for humans. Read the words, let them inspire you, see what they shake loose. Don't pipe them into an LLM, a training dataset, or an automated content pipeline. The whole point is that a real person wrote these words centuries ago and they might spark something in a real person today. A machine in the middle defeats the purpose.
+This is for humans. Read the words, let them inspire you, see what they shake loose. Don't type them into an LLM. The whole point is that a real person wrote these words and they might spark something in a real person today. 
 
 ## How it works
 
@@ -91,12 +91,16 @@ All underlying texts are **public domain**.
 
 The poetry texts were retrieved from the PoetryDB API. The poems themselves are public domain works by authors who died long before copyright would apply. The GPL v2 license on the PoetryDB repository covers the API server code, not the poem texts it serves.
 
-**Note for UK users:** The King James Version is subject to a perpetual Royal Prerogative (Crown Copyright) in the United Kingdom, restricting its printing and publication. This applies to commercial publishers — enforcement against digital, non-commercial redistribution is unheard of — but it's worth knowing about.
+**Note for UK users:** The King James Version is subject to a perpetual Royal Prerogative (Crown Copyright) in the United Kingdom, restricting its printing and publication. This applies to commercial publishers — enforcement against digital, non-commercial redistribution is unheard of — but it's worth knowing about. If the King or his appointed representative contacts me I will of course be happy to take it down.
 
 This project (engine code, JSON data structures, and markdown files) is released under **CC0 1.0 Universal** — public domain, no rights reserved. Do whatever you like with it.
 
 ## Credits
+The [Sly Flourish](https://slyflourish.com/) discord server and the folks there for sparking the idea in me (Chris Wilson). 
 
-Built with the help of Claude (Anthropic). All the interesting words belong to their original authors.
-I know people don't love AI. And I don't blame them, to me this was a good use of it. It coded me a tool to serve inspiration from real humans designed to inspire real humans.
+Built with the help of Claude (Anthropic). 
+I know people don't love AI. And I don't blame them, to me this was a good use of it. It coded me a tool to serve inspiration from real humans designed to inspire real humans. Without it this would be just an idea.
+
 Just don't use it to write the damn poetry
+
+All the interesting words belong to their original authors.
