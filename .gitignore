@@ -2,3 +2,6 @@
 .obsidian/
 .DS_Store
 .trash/
+
+# Raw source data (kept locally for reproducibility, not needed by the vault)
+Data/*/raw/
