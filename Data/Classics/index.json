@@ -1,0 +1,238 @@
+{
+  "works": [
+    {
+      "title": "The Iliad",
+      "author": "Homer",
+      "translator": "William Cullen Bryant",
+      "type": "verse",
+      "file": "the_iliad.json",
+      "lines": 19496,
+      "sections": 24
+    },
+    {
+      "title": "The Odyssey",
+      "author": "Homer",
+      "translator": "William Cullen Bryant",
+      "type": "verse",
+      "file": "the_odyssey.json",
+      "lines": 14915,
+      "sections": 24
+    },
+    {
+      "title": "The Aeneid",
+      "author": "Virgil",
+      "translator": "John Dryden",
+      "type": "verse",
+      "file": "the_aeneid.json",
+      "lines": 13699,
+      "sections": 12
+    },
+    {
+      "title": "The Eclogues",
+      "author": "Virgil",
+      "translator": "John Dryden",
+      "type": "verse",
+      "file": "the_eclogues.json",
+      "lines": 584,
+      "sections": 10
+    },
+    {
+      "title": "The Georgics",
+      "author": "Virgil",
+      "translator": "John Dryden",
+      "type": "verse",
+      "file": "the_georgics.json",
+      "lines": 3149,
+      "sections": 4
+    },
+    {
+      "title": "Metamorphoses",
+      "author": "Ovid",
+      "translator": "Various Translators",
+      "type": "verse",
+      "file": "metamorphoses.json",
+      "lines": 15940,
+      "sections": 15
+    },
+    {
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "translator": "George Long",
+      "type": "prose",
+      "file": "meditations.json",
+      "lines": 539,
+      "sections": 12
+    },
+    {
+      "title": "Commentaries on the Gallic War",
+      "author": "Julius Caesar",
+      "translator": "W.A. McDevitte & W.S. Bohn",
+      "type": "prose",
+      "file": "commentaries_on_the_gallic_war.json",
+      "lines": 349,
+      "sections": 7
+    },
+    {
+      "title": "Dialogues",
+      "author": "Plato",
+      "translator": "Benjamin Jowett",
+      "type": "prose",
+      "file": "dialogues.json",
+      "lines": 11722,
+      "sections": 24
+    },
+    {
+      "title": "Histories",
+      "author": "Herodotus",
+      "translator": "G.C. Macaulay",
+      "type": "prose",
+      "file": "histories.json",
+      "lines": 1707,
+      "sections": 9
+    },
+    {
+      "title": "History of the Peloponnesian War",
+      "author": "Thucydides",
+      "translator": "Richard Crawley",
+      "type": "prose",
+      "file": "history_of_the_peloponnesian_war.json",
+      "lines": 1027,
+      "sections": 26
+    },
+    {
+      "title": "Nicomachean Ethics",
+      "author": "Aristotle",
+      "translator": "F.H. Peters",
+      "type": "prose",
+      "file": "nicomachean_ethics.json",
+      "lines": 1501,
+      "sections": 10
+    },
+    {
+      "title": "Seneca's Dialogues",
+      "author": "Seneca",
+      "translator": "Aubrey Stewart",
+      "type": "prose",
+      "file": "seneca_s_dialogues.json",
+      "lines": 716,
+      "sections": 12
+    },
+    {
+      "title": "Discourses",
+      "author": "Epictetus",
+      "translator": "George Long",
+      "type": "prose",
+      "file": "discourses.json",
+      "lines": 472,
+      "sections": 4
+    },
+    {
+      "title": "Short Works",
+      "author": "Epictetus",
+      "translator": "George Long",
+      "type": "prose",
+      "file": "short_works.json",
+      "lines": 254,
+      "sections": 2
+    },
+    {
+      "title": "The Lives of the Caesars",
+      "author": "Suetonius",
+      "translator": "J.C. Rolfe",
+      "type": "prose",
+      "file": "the_lives_of_the_caesars.json",
+      "lines": 1072,
+      "sections": 8
+    },
+    {
+      "title": "Ajax",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "ajax.json",
+      "lines": 1108,
+      "sections": 1
+    },
+    {
+      "title": "Antigone",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "antigone.json",
+      "lines": 906,
+      "sections": 1
+    },
+    {
+      "title": "Electra",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "electra.json",
+      "lines": 1157,
+      "sections": 1
+    },
+    {
+      "title": "Oedipus Rex",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "oedipus_rex.json",
+      "lines": 1251,
+      "sections": 1
+    },
+    {
+      "title": "Oedipus at Colonus",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "oedipus_at_colonus.json",
+      "lines": 1313,
+      "sections": 1
+    },
+    {
+      "title": "Philoctetes",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "philoctetes.json",
+      "lines": 1188,
+      "sections": 1
+    },
+    {
+      "title": "The Trachiniae",
+      "author": "Sophocles",
+      "translator": "Francis Storr",
+      "type": "drama",
+      "file": "the_trachiniae.json",
+      "lines": 1020,
+      "sections": 1
+    },
+    {
+      "title": "Agamemnon",
+      "author": "Aeschylus",
+      "translator": "Gilbert Murray",
+      "type": "drama",
+      "file": "agamemnon.json",
+      "lines": 879,
+      "sections": 1
+    },
+    {
+      "title": "The Libation Bearers",
+      "author": "Aeschylus",
+      "translator": "Gilbert Murray",
+      "type": "drama",
+      "file": "the_libation_bearers.json",
+      "lines": 601,
+      "sections": 1
+    },
+    {
+      "title": "The Eumenides",
+      "author": "Aeschylus",
+      "translator": "Gilbert Murray",
+      "type": "drama",
+      "file": "the_eumenides.json",
+      "lines": 695,
+      "sections": 1
+    }
+  ]
+}

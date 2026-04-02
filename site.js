@@ -399,6 +399,126 @@
   }
 
   // =====================================================================
+  // CLASSICS
+  // =====================================================================
+
+  async function initClassics() {
+    const index = await loadJSON(`${DATA_BASE}/Classics/index.json`);
+    const typeSel = $("cls-type");
+    const authorSel = $("cls-author");
+    const workSel = $("cls-work");
+
+    function populateAuthors() {
+      const type = typeSel.value;
+      const authors = new Set();
+      for (const w of index.works) {
+        if (type !== "any" && w.type !== type) continue;
+        authors.add(w.author);
+      }
+      authorSel.innerHTML = "";
+      addOption(authorSel, "", "Any");
+      for (const a of [...authors].sort()) addOption(authorSel, a, a);
+      populateWorks();
+    }
+
+    function populateWorks() {
+      const type = typeSel.value;
+      const author = authorSel.value;
+      workSel.innerHTML = "";
+      addOption(workSel, "", "Any");
+      for (const w of index.works) {
+        if (type !== "any" && w.type !== type) continue;
+        if (author && w.author !== author) continue;
+        addOption(workSel, w.file, `${w.title} (${w.author})`);
+      }
+    }
+
+    populateAuthors();
+    typeSel.addEventListener("change", populateAuthors);
+    authorSel.addEventListener("change", populateWorks);
+
+    $("cls-gen").addEventListener("click", async () => {
+      const count = parseInt($("cls-count").value);
+      const type = typeSel.value;
+      const author = authorSel.value;
+      const workFile = workSel.value;
+      try {
+        const items = [];
+        for (let i = 0; i < count; i++) {
+          let workInfo;
+          if (workFile) {
+            workInfo = index.works.find(w => w.file === workFile);
+          } else {
+            const candidates = index.works.filter(w => {
+              if (type !== "any" && w.type !== type) return false;
+              if (author && w.author !== author) return false;
+              return true;
+            });
+            workInfo = weightedPick(candidates, w => w.lines);
+          }
+          const workData = await loadJSON(`${DATA_BASE}/Classics/${workInfo.file}`);
+          items.push(pickClassics(workData));
+        }
+        renderResults($("cls-results"), $("cls-copyall"), items);
+      } catch (e) {
+        $("cls-results").innerHTML = `<p class="error">Error: ${e.message}</p>`;
+      }
+    });
+  }
+
+  function pickClassics(workData) {
+    const title = workData.title;
+    const author = workData.author;
+    const section = weightedPick(workData.sections, s =>
+      s.speeches ? s.speeches.reduce((n, sp) => n + sp.lines.length, 0) : (s.lines ? s.lines.length : 0)
+    );
+
+    if (workData.type === "drama" && section.speeches) {
+      const speech = pick(section.speeches);
+      const ref = `${author}, ${title} \u2014 ${speech.speaker}`;
+
+      if (speech.lines.length <= 1 || speech.lines.join(" ").length <= 200) {
+        return { text: speech.lines.join("\n"), ref: ref };
+      } else {
+        const line = pick(speech.lines);
+        return {
+          text: line,
+          ref: ref,
+          expand: [{ label: "Full speech", text: ref + "\n\n" + speech.lines.join("\n") }]
+        };
+      }
+
+    } else if (workData.type === "verse") {
+      const allLines = section.lines || [];
+      const allStanzas = section.stanzas || [];
+      const line = pick(allLines);
+      const ref = `${author}, ${title}` + (section.title ? ` \u2014 ${section.title}` : "");
+
+      let containingStanza = null;
+      for (const st of allStanzas) {
+        if (st.includes(line)) { containingStanza = st; break; }
+      }
+
+      const expand = [];
+      if (containingStanza && containingStanza.length < allLines.length) {
+        expand.push({ label: "Stanza", text: containingStanza.join("\n") });
+      }
+      if (allLines.length > 1) {
+        const body = allStanzas.length > 0 ? allStanzas.map(s => s.join("\n")).join("\n\n") : allLines.join("\n");
+        expand.push({ label: "Full passage", text: title + " \u2014 " + (section.title || "") + "\nby " + author + "\n\n" + body });
+      }
+
+      return { text: line, ref: ref, expand: expand };
+
+    } else {
+      const allLines = section.lines || [];
+      const line = pick(allLines);
+      const ref = `${author}, ${title}` + (section.title ? ` \u2014 ${section.title}` : "");
+      return { text: line, ref: ref };
+    }
+  }
+
+  // =====================================================================
   // STANDALONE PICK FUNCTIONS (for quote hero)
   // =====================================================================
 
@@ -448,6 +568,13 @@
     return { text: line, ref: ref, expand: expand };
   }
 
+  async function pickRandomClassics() {
+    const index = await loadJSON(`${DATA_BASE}/Classics/index.json`);
+    const workInfo = weightedPick(index.works, w => w.lines);
+    const workData = await loadJSON(`${DATA_BASE}/Classics/${workInfo.file}`);
+    return pickClassics(workData);
+  }
+
   // =====================================================================
   // QUOTE HERO — random quote + one of each
   // =====================================================================
@@ -456,11 +583,12 @@
     const resultsDiv = $("quote-results");
     const copyAllBtn = $("quote-copyall");
     try {
-      const source = pick(["bible", "shakespeare", "poetry"]);
+      const source = pick(["bible", "shakespeare", "poetry", "classics"]);
       let item;
       if (source === "bible") item = await pickRandomBible();
       else if (source === "shakespeare") item = await pickRandomShakespeare();
-      else item = await pickRandomPoetry();
+      else if (source === "poetry") item = await pickRandomPoetry();
+      else item = await pickRandomClassics();
       renderResults(resultsDiv, copyAllBtn, [item]);
     } catch (e) {
       resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
@@ -471,12 +599,13 @@
     const resultsDiv = $("quote-results");
     const copyAllBtn = $("quote-copyall");
     try {
-      const [bible, shk, poetry] = await Promise.all([
+      const [bible, shk, poetry, classics] = await Promise.all([
         pickRandomBible(),
         pickRandomShakespeare(),
-        pickRandomPoetry()
+        pickRandomPoetry(),
+        pickRandomClassics()
       ]);
-      renderResults(resultsDiv, copyAllBtn, [bible, shk, poetry]);
+      renderResults(resultsDiv, copyAllBtn, [bible, shk, poetry, classics]);
     } catch (e) {
       resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
     }
@@ -489,6 +618,7 @@
   initBible();
   initShakespeare();
   initPoetry();
+  initClassics();
 
   $("quote-reload").addEventListener("click", loadRandomQuote);
   $("quote-each").addEventListener("click", loadOneOfEach);

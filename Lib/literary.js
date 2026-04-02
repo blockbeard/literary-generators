@@ -531,6 +531,166 @@ var LitGen = (function () {
   }
 
   // =====================================================================
+  // CLASSICS GENERATOR
+  // =====================================================================
+
+  async function buildClassicsUI(dv, dataDir, parentContainer) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const container = parentContainer || dv.el("div", "", { cls: "litgen-classics" });
+
+    // Filter row
+    const filterRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" });
+
+    const typeSelect = makeSelect(["Any", "Verse", "Prose", "Drama"]);
+    filterRow.appendChild(label("Type:"));
+    filterRow.appendChild(typeSelect);
+
+    const authorSelect = document.createElement("select");
+    authorSelect.style.cssText = "padding:4px 8px;font-size:13px;max-width:200px";
+    filterRow.appendChild(label("Author:"));
+    filterRow.appendChild(authorSelect);
+
+    const workSelect = document.createElement("select");
+    workSelect.style.cssText = "padding:4px 8px;font-size:13px;max-width:260px";
+    filterRow.appendChild(label("Work:"));
+    filterRow.appendChild(workSelect);
+
+    function populateAuthors() {
+      const type = typeSelect.value.toLowerCase();
+      const authors = new Set();
+      for (const w of index.works) {
+        if (type !== "any" && w.type !== type) continue;
+        authors.add(w.author);
+      }
+      authorSelect.innerHTML = "";
+      addOption(authorSelect, "", "Any");
+      for (const a of [...authors].sort()) addOption(authorSelect, a, a);
+      populateWorks();
+    }
+
+    function populateWorks() {
+      const type = typeSelect.value.toLowerCase();
+      const author = authorSelect.value;
+      workSelect.innerHTML = "";
+      addOption(workSelect, "", "Any");
+      for (const w of index.works) {
+        if (type !== "any" && w.type !== type) continue;
+        if (author && w.author !== author) continue;
+        addOption(workSelect, w.file, `${w.title} (${w.author})`);
+      }
+    }
+
+    populateAuthors();
+    typeSelect.addEventListener("change", populateAuthors);
+    authorSelect.addEventListener("change", populateWorks);
+    container.appendChild(filterRow);
+
+    // Controls
+    const controlRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" });
+    const countSelect = makeSelect(["1", "3", "5", "10"], "1");
+    controlRow.appendChild(label("Count:"));
+    controlRow.appendChild(countSelect);
+    const btn = makeButton("Generate");
+    controlRow.appendChild(btn);
+    container.appendChild(controlRow);
+
+    const results = el("div", {});
+    container.appendChild(results);
+    const copyBtn = makeCopyAllButton();
+    container.appendChild(copyBtn);
+
+    btn.addEventListener("click", async () => {
+      const count = parseInt(countSelect.value);
+      const type = typeSelect.value.toLowerCase();
+      const author = authorSelect.value;
+      const workFile = workSelect.value;
+      try {
+        const items = [];
+        for (let i = 0; i < count; i++) {
+          let workInfo;
+          if (workFile) {
+            workInfo = index.works.find(w => w.file === workFile);
+          } else {
+            const candidates = index.works.filter(w => {
+              if (type !== "any" && w.type !== type) return false;
+              if (author && w.author !== author) return false;
+              return true;
+            });
+            workInfo = weightedPick(candidates, w => w.lines);
+          }
+          const workData = await loadJSON(dv, dataDir + "/" + workInfo.file);
+          const base = projectRoot(dataDir);
+          const item = pickClassics(workData, base);
+          items.push(item);
+        }
+        renderResults(results, copyBtn, items);
+      } catch (e) {
+        results.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
+      }
+    });
+  }
+
+  function pickClassics(workData, base) {
+    const title = workData.title;
+    const author = workData.author;
+    const section = weightedPick(workData.sections, s =>
+      s.speeches ? s.speeches.reduce((n, sp) => n + sp.lines.length, 0) : (s.lines ? s.lines.length : 0)
+    );
+
+    if (workData.type === "drama" && section.speeches) {
+      // Drama — pick random speech
+      const speech = pick(section.speeches);
+      const ref = `${author}, ${title} — ${speech.speaker}`;
+      const linkTarget = `${base}/Source/Classics/${author}#${section.title || title}`;
+
+      if (speech.lines.length <= 1 || speech.lines.join(" ").length <= 200) {
+        return { text: speech.lines.join("\n"), ref: ref, linkTarget: linkTarget };
+      } else {
+        const line = pick(speech.lines);
+        return {
+          text: line,
+          ref: ref,
+          linkTarget: linkTarget,
+          expand: [{ label: "Full speech", text: ref + "\n\n" + speech.lines.join("\n") }]
+        };
+      }
+
+    } else if (workData.type === "verse") {
+      // Verse — pick random line, expand to stanza then full section
+      const allLines = section.lines || [];
+      const allStanzas = section.stanzas || [];
+      const line = pick(allLines);
+      const ref = `${author}, ${title}` + (section.title ? ` — ${section.title}` : "");
+      const linkTarget = `${base}/Source/Classics/${author}#${section.title || title}`;
+
+      let containingStanza = null;
+      for (const st of allStanzas) {
+        if (st.includes(line)) { containingStanza = st; break; }
+      }
+
+      const expand = [];
+      if (containingStanza && containingStanza.length < allLines.length) {
+        expand.push({ label: "Stanza", text: containingStanza.join("\n") });
+      }
+      if (allLines.length > 1) {
+        const body = allStanzas.length > 0 ? allStanzas.map(s => s.join("\n")).join("\n\n") : allLines.join("\n");
+        expand.push({ label: "Full passage", text: title + " — " + (section.title || "") + "\nby " + author + "\n\n" + body });
+      }
+
+      return { text: line, ref: ref, linkTarget: linkTarget, expand: expand };
+
+    } else {
+      // Prose — pick random paragraph
+      const allLines = section.lines || [];
+      const line = pick(allLines);
+      const ref = `${author}, ${title}` + (section.title ? ` — ${section.title}` : "");
+      const linkTarget = `${base}/Source/Classics/${author}#${section.title || title}`;
+
+      return { text: line, ref: ref, linkTarget: linkTarget };
+    }
+  }
+
+  // =====================================================================
   // STANDALONE PICK FUNCTIONS (for Index page)
   // =====================================================================
 
@@ -585,8 +745,16 @@ var LitGen = (function () {
     return { text: line, ref: ref, linkTarget: linkTarget, expand: expand };
   }
 
+  async function pickRandomClassics(dv, dataDir) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const base = projectRoot(dataDir);
+    const workInfo = weightedPick(index.works, w => w.lines);
+    const workData = await loadJSON(dv, dataDir + "/" + workInfo.file);
+    return pickClassics(workData, base);
+  }
+
   // =====================================================================
-  // INDEX PAGE — all three generators + random quote + one of each
+  // INDEX PAGE — all four generators + random quote + one of each
   // =====================================================================
 
   async function buildIndexUI(dv, baseDir) {
@@ -595,6 +763,7 @@ var LitGen = (function () {
     const bibleDir = baseDir + "/Data/Bible";
     const shkDir = baseDir + "/Data/Shakespeare";
     const poetryDir = baseDir + "/Data/Poetry";
+    const classicsDir = baseDir + "/Data/Classics";
 
     // --- Random quote at the top ---
     const quoteSection = el("div", {
@@ -616,11 +785,12 @@ var LitGen = (function () {
 
     async function loadRandomQuote() {
       try {
-        const source = pick(["bible", "shakespeare", "poetry"]);
+        const source = pick(["bible", "shakespeare", "poetry", "classics"]);
         let item;
         if (source === "bible") item = await pickRandomBible(dv, bibleDir);
         else if (source === "shakespeare") item = await pickRandomShakespeare(dv, shkDir);
-        else item = await pickRandomPoetry(dv, poetryDir);
+        else if (source === "poetry") item = await pickRandomPoetry(dv, poetryDir);
+        else item = await pickRandomClassics(dv, classicsDir);
         renderResults(quoteContent, quoteCopyAll, [item]);
       } catch (e) {
         quoteContent.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
@@ -644,12 +814,13 @@ var LitGen = (function () {
 
     eachBtn.addEventListener("click", async () => {
       try {
-        const [bible, shk, poetry] = await Promise.all([
+        const [bible, shk, poetry, classics] = await Promise.all([
           pickRandomBible(dv, bibleDir),
           pickRandomShakespeare(dv, shkDir),
-          pickRandomPoetry(dv, poetryDir)
+          pickRandomPoetry(dv, poetryDir),
+          pickRandomClassics(dv, classicsDir)
         ]);
-        renderResults(eachResults, eachCopyAll, [bible, shk, poetry]);
+        renderResults(eachResults, eachCopyAll, [bible, shk, poetry, classics]);
       } catch (e) {
         eachResults.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
       }
@@ -675,10 +846,16 @@ var LitGen = (function () {
     poetryHeader.textContent = "Poetry";
     container.appendChild(poetryHeader);
     await buildPoetryUI(dv, poetryDir, container);
+
+    // --- Classics generator ---
+    const classicsHeader = document.createElement("h3");
+    classicsHeader.textContent = "Classics";
+    container.appendChild(classicsHeader);
+    await buildClassicsUI(dv, classicsDir, container);
   }
 
   // =====================================================================
   // PUBLIC API
   // =====================================================================
-  return { buildBibleUI, buildShakespeareUI, buildPoetryUI, buildIndexUI };
+  return { buildBibleUI, buildShakespeareUI, buildPoetryUI, buildClassicsUI, buildIndexUI };
 })();

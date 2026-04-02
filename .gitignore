@@ -5,3 +5,4 @@
 
 # Raw source data (kept locally for reproducibility, not needed by the vault)
 Data/*/raw/
+Data/*/convert_*.py
