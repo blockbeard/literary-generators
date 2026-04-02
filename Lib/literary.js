@@ -102,7 +102,7 @@ var LitGen = (function () {
           const bookData = await loadJSON(dv, dataDir + "/" + bookInfo.file);
           const ch = weightedPick(bookData.chapters, c => c.verses.length);
           const verse = pick(ch.verses);
-          const ref = `${bookInfo.name} ${ch.chapter}:${verse.v}`;
+          const ref = `King James Bible, ${bookInfo.name} ${ch.chapter}:${verse.v}`;
           const base = projectRoot(dataDir);
           const linkTarget = `${base}/Source/Bible/${bookInfo.name}#Chapter ${ch.chapter}`;
           items.push({ text: verse.t, ref: ref, linkTarget: linkTarget });
@@ -703,7 +703,7 @@ var LitGen = (function () {
     const verse = pick(ch.verses);
     return {
       text: verse.t,
-      ref: `${bookInfo.name} ${ch.chapter}:${verse.v}`,
+      ref: `King James Bible, ${bookInfo.name} ${ch.chapter}:${verse.v}`,
       linkTarget: `${base}/Source/Bible/${bookInfo.name}#Chapter ${ch.chapter}`
     };
   }

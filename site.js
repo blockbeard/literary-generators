@@ -223,7 +223,7 @@
           const verse = pick(ch.verses);
           items.push({
             text: verse.t,
-            ref: `${bookInfo.name} ${ch.chapter}:${verse.v}`
+            ref: `King James Bible, ${bookInfo.name} ${ch.chapter}:${verse.v}`
           });
         }
         renderResults($("bible-results"), $("bible-copyall"), items);
@@ -530,7 +530,7 @@
     const verse = pick(ch.verses);
     return {
       text: verse.t,
-      ref: `${bookInfo.name} ${ch.chapter}:${verse.v}`
+      ref: `King James Bible, ${bookInfo.name} ${ch.chapter}:${verse.v}`
     };
   }
 
