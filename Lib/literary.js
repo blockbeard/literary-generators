@@ -199,7 +199,7 @@ var LitGen = (function () {
       const scene = weightedPick(workData.scenes, s => s.speeches.length);
       const speech = pick(scene.speeches);
       const actRoman = toRoman(scene.act);
-      const ref = `${title}, ${actRoman}.${scene.scene} — ${speech.c}`;
+      const ref = `William Shakespeare, ${title}, ${actRoman}.${scene.scene} — ${speech.c}`;
       const linkTarget = `${base}/Source/Shakespeare/${title}#Scene ${scene.scene}`;
 
       if (speech.speech.length <= 200 || speech.lines.length <= 1) {
@@ -221,7 +221,7 @@ var LitGen = (function () {
     } else if (workData.type === "sonnet") {
       // Pick a random sonnet, show a random line
       const sonnet = pick(workData.scenes);
-      const ref = `Sonnet ${sonnet.scene}`;
+      const ref = `William Shakespeare, Sonnet ${sonnet.scene}`;
       const linkTarget = `${base}/Source/Shakespeare/${title}#Sonnet ${sonnet.scene}`;
       const line = pick(sonnet.lines);
 
@@ -245,7 +245,7 @@ var LitGen = (function () {
       const allLines = scene.lines || [];
       const allStanzas = scene.stanzas || [];
       const line = pick(allLines);
-      const ref = `${title}`;
+      const ref = `William Shakespeare, ${title}`;
       const linkTarget = `${base}/Source/Shakespeare/${title}#Stanza ${scene.scene}`;
 
       // Find containing stanza

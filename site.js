@@ -287,7 +287,7 @@
     if (workData.type === "play") {
       const scene = weightedPick(workData.scenes, s => s.speeches.length);
       const speech = pick(scene.speeches);
-      const ref = `${title}, ${toRoman(scene.act)}.${scene.scene} \u2014 ${speech.c}`;
+      const ref = `William Shakespeare, ${title}, ${toRoman(scene.act)}.${scene.scene} \u2014 ${speech.c}`;
 
       if (speech.speech.length <= 200 || speech.lines.length <= 1) {
         return { text: speech.speech, ref: ref };
@@ -302,7 +302,7 @@
 
     } else if (workData.type === "sonnet") {
       const sonnet = pick(workData.scenes);
-      const ref = `Sonnet ${sonnet.scene}`;
+      const ref = `William Shakespeare, Sonnet ${sonnet.scene}`;
       const line = pick(sonnet.lines);
 
       let containingStanza = null;
@@ -323,7 +323,7 @@
       const allLines = scene.lines || [];
       const allStanzas = scene.stanzas || [];
       const line = pick(allLines);
-      const ref = title;
+      const ref = `William Shakespeare, ${title}`;
 
       let containingStanza = null;
       for (const st of allStanzas) {
