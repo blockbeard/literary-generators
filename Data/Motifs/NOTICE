@@ -1,0 +1,14 @@
+Motif-Index of Folk-Literature — JSON Data
+============================================
+
+This directory contains data derived from:
+
+  Repository: https://github.com/fbkarsdorp/tmi
+  Author:     Folgert Karsdorp
+  License:    Apache License 2.0 (see LICENSE in this directory)
+
+The data is a JSON digitization of Stith Thompson's Motif-Index of
+Folk-Literature (1955–1958), a standard reference work in folklore studies.
+
+The original JSON was restructured into per-category files for this project.
+No motif content was added, removed, or altered.

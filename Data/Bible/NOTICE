@@ -1,0 +1,11 @@
+King James Bible — JSON Data
+=============================
+
+This directory contains data derived from:
+
+  Repository: https://github.com/aruljohn/Bible-kjv
+  Author:     Arul John
+  License:    MIT License (see LICENSE in this directory)
+
+The King James Version text is public domain. The JSON structuring
+of the text is copyright (c) 2019 Arul John under the MIT License.

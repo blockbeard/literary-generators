@@ -344,7 +344,7 @@
   <div class="container">
     <header>
       <h1>Literary Generators</h1>
-      <p>Random inspiration from the King James Bible, Complete Works of Shakespeare, ancient Greek and Roman classics, and a selection of public domain poetry.</p>
+      <p>Random inspiration from the King James Bible, Complete Works of Shakespeare, ancient Greek and Roman classics, public domain poetry, and the Motif-Index of Folk-Literature.</p>
       <a class="repo-link" href="https://github.com/blockbeard/literary-generators">
         Download for Obsidian
       </a>
@@ -365,6 +365,7 @@
       <button class="tab" data-tab="shakespeare">Shakespeare</button>
       <button class="tab" data-tab="poetry">Poetry</button>
       <button class="tab" data-tab="classics">Classics</button>
+      <button class="tab" data-tab="motifs">Motif-Index</button>
     </div>
 
     <!-- BIBLE -->
@@ -455,6 +456,23 @@
       </div>
       <div class="results" id="cls-results"></div>
       <button class="copy-all-btn" id="cls-copyall">Copy All</button>
+    </div>
+
+    <!-- MOTIF-INDEX -->
+    <div class="generator" id="gen-motifs">
+      <div class="filter-row">
+        <label class="filter-label">Category:</label>
+        <select id="motif-cat"></select>
+      </div>
+      <div class="control-row">
+        <label class="filter-label">Count:</label>
+        <select id="motif-count">
+          <option>1</option><option>3</option><option>5</option><option>10</option>
+        </select>
+        <button class="generate-btn" id="motif-gen">Generate</button>
+      </div>
+      <div class="results" id="motif-results"></div>
+      <button class="copy-all-btn" id="motif-copyall">Copy All</button>
     </div>
 
     <!-- BLOG SIDEBAR -->

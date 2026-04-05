@@ -491,16 +491,23 @@ var LitGen = (function () {
         marginTop: "4px"
       });
 
-      const linkEl = document.createElement("a");
-      linkEl.className = "internal-link";
-      linkEl.dataset.href = item.linkTarget;
-      linkEl.textContent = item.ref;
-      linkEl.style.cssText = "font-size:12px;color:var(--text-accent);cursor:pointer";
-      linkEl.addEventListener("click", (e) => {
-        e.preventDefault();
-        app.workspace.openLinkText(linkEl.dataset.href, "", false);
-      });
-      attrRow.appendChild(linkEl);
+      if (item.linkTarget) {
+        const linkEl = document.createElement("a");
+        linkEl.className = "internal-link";
+        linkEl.dataset.href = item.linkTarget;
+        linkEl.textContent = item.ref;
+        linkEl.style.cssText = "font-size:12px;color:var(--text-accent);cursor:pointer";
+        linkEl.addEventListener("click", (e) => {
+          e.preventDefault();
+          app.workspace.openLinkText(linkEl.dataset.href, "", false);
+        });
+        attrRow.appendChild(linkEl);
+      } else {
+        const refSpan = document.createElement("span");
+        refSpan.textContent = item.ref;
+        refSpan.style.cssText = "font-size:12px;color:var(--text-muted)";
+        attrRow.appendChild(refSpan);
+      }
 
       const copyOne = document.createElement("button");
       copyOne.textContent = "Copy line";
@@ -691,6 +698,91 @@ var LitGen = (function () {
   }
 
   // =====================================================================
+  // MOTIFS GENERATOR
+  // =====================================================================
+
+  async function buildMotifsUI(dv, dataDir, parentContainer) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const container = parentContainer || dv.el("div", "", { cls: "litgen-motifs" });
+
+    // Filter row
+    const filterRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" });
+
+    const catSelect = document.createElement("select");
+    catSelect.style.cssText = "padding:4px 8px;font-size:13px;max-width:300px";
+    addOption(catSelect, "", "Any Category");
+    for (const cat of index.categories) {
+      addOption(catSelect, cat.file, `${cat.letter}. ${cat.name} (${cat.count})`);
+    }
+    filterRow.appendChild(label("Category:"));
+    filterRow.appendChild(catSelect);
+    container.appendChild(filterRow);
+
+    // Controls
+    const controlRow = el("div", { display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" });
+    const countSelect = makeSelect(["1", "3", "5", "10"], "1");
+    controlRow.appendChild(label("Count:"));
+    controlRow.appendChild(countSelect);
+    const btn = makeButton("Generate");
+    controlRow.appendChild(btn);
+    container.appendChild(controlRow);
+
+    const results = el("div", {});
+    container.appendChild(results);
+    const copyBtn = makeCopyAllButton();
+    container.appendChild(copyBtn);
+
+    btn.addEventListener("click", async () => {
+      const count = parseInt(countSelect.value);
+      const catFile = catSelect.value;
+      try {
+        const items = [];
+        for (let i = 0; i < count; i++) {
+          let catInfo;
+          if (catFile) {
+            catInfo = index.categories.find(c => c.file === catFile);
+          } else {
+            catInfo = weightedPick(index.categories, c => c.count);
+          }
+          const catData = await loadJSON(dv, dataDir + "/" + catInfo.file);
+          const item = pickMotif(catData);
+          items.push(item);
+        }
+        renderResults(results, copyBtn, items);
+      } catch (e) {
+        results.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
+      }
+    });
+  }
+
+  function pickMotif(catData) {
+    // Pick a random sub-group weighted by motif count, then a random motif
+    const sg = weightedPick(catData.subgroups, s => s.motifs.length);
+    const motif = pick(sg.motifs);
+    const ref = `Stith Thompson, Motif-Index — ${motif.id}`;
+
+    // Build expand layers with detail, locations, references
+    const expand = [];
+    const details = [];
+    if (motif.detail) details.push(motif.detail);
+    if (motif.locations && motif.locations.length > 0) {
+      details.push("Locations: " + motif.locations.join(", "));
+    }
+    if (motif.refs) details.push("References: " + motif.refs);
+
+    if (details.length > 0) {
+      expand.push({ label: "Details", text: details.join("\n\n") });
+    }
+
+    return {
+      text: motif.description,
+      ref: ref,
+      linkTarget: null,
+      expand: expand.length > 0 ? expand : undefined
+    };
+  }
+
+  // =====================================================================
   // STANDALONE PICK FUNCTIONS (for Index page)
   // =====================================================================
 
@@ -753,8 +845,15 @@ var LitGen = (function () {
     return pickClassics(workData, base);
   }
 
+  async function pickRandomMotif(dv, dataDir) {
+    const index = await loadJSON(dv, dataDir + "/index.json");
+    const catInfo = weightedPick(index.categories, c => c.count);
+    const catData = await loadJSON(dv, dataDir + "/" + catInfo.file);
+    return pickMotif(catData);
+  }
+
   // =====================================================================
-  // INDEX PAGE — all four generators + random quote + one of each
+  // INDEX PAGE — all five generators + random quote + one of each
   // =====================================================================
 
   async function buildIndexUI(dv, baseDir) {
@@ -764,6 +863,7 @@ var LitGen = (function () {
     const shkDir = baseDir + "/Data/Shakespeare";
     const poetryDir = baseDir + "/Data/Poetry";
     const classicsDir = baseDir + "/Data/Classics";
+    const motifsDir = baseDir + "/Data/Motifs";
 
     // --- Random quote at the top ---
     const quoteSection = el("div", {
@@ -785,12 +885,13 @@ var LitGen = (function () {
 
     async function loadRandomQuote() {
       try {
-        const source = pick(["bible", "shakespeare", "poetry", "classics"]);
+        const source = pick(["bible", "shakespeare", "poetry", "classics", "motifs"]);
         let item;
         if (source === "bible") item = await pickRandomBible(dv, bibleDir);
         else if (source === "shakespeare") item = await pickRandomShakespeare(dv, shkDir);
         else if (source === "poetry") item = await pickRandomPoetry(dv, poetryDir);
-        else item = await pickRandomClassics(dv, classicsDir);
+        else if (source === "classics") item = await pickRandomClassics(dv, classicsDir);
+        else item = await pickRandomMotif(dv, motifsDir);
         renderResults(quoteContent, quoteCopyAll, [item]);
       } catch (e) {
         quoteContent.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
@@ -814,13 +915,14 @@ var LitGen = (function () {
 
     eachBtn.addEventListener("click", async () => {
       try {
-        const [bible, shk, poetry, classics] = await Promise.all([
+        const [bible, shk, poetry, classics, motif] = await Promise.all([
           pickRandomBible(dv, bibleDir),
           pickRandomShakespeare(dv, shkDir),
           pickRandomPoetry(dv, poetryDir),
-          pickRandomClassics(dv, classicsDir)
+          pickRandomClassics(dv, classicsDir),
+          pickRandomMotif(dv, motifsDir)
         ]);
-        renderResults(eachResults, eachCopyAll, [bible, shk, poetry, classics]);
+        renderResults(eachResults, eachCopyAll, [bible, shk, poetry, classics, motif]);
       } catch (e) {
         eachResults.innerHTML = `<span style='color:var(--text-error)'>Error: ${e.message}</span>`;
       }
@@ -852,10 +954,16 @@ var LitGen = (function () {
     classicsHeader.textContent = "Classics";
     container.appendChild(classicsHeader);
     await buildClassicsUI(dv, classicsDir, container);
+
+    // --- Motifs generator ---
+    const motifsHeader = document.createElement("h3");
+    motifsHeader.textContent = "Motif-Index";
+    container.appendChild(motifsHeader);
+    await buildMotifsUI(dv, motifsDir, container);
   }
 
   // =====================================================================
   // PUBLIC API
   // =====================================================================
-  return { buildBibleUI, buildShakespeareUI, buildPoetryUI, buildClassicsUI, buildIndexUI };
+  return { buildBibleUI, buildShakespeareUI, buildPoetryUI, buildClassicsUI, buildMotifsUI, buildIndexUI };
 })();

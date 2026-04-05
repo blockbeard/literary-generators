@@ -519,6 +519,65 @@
   }
 
   // =====================================================================
+  // MOTIFS
+  // =====================================================================
+
+  async function initMotifs() {
+    const index = await loadJSON(`${DATA_BASE}/Motifs/index.json`);
+    const catSel = $("motif-cat");
+
+    addOption(catSel, "", "Any Category");
+    for (const cat of index.categories) {
+      addOption(catSel, cat.file, `${cat.letter}. ${cat.name} (${cat.count})`);
+    }
+
+    $("motif-gen").addEventListener("click", async () => {
+      const count = parseInt($("motif-count").value);
+      const catFile = catSel.value;
+      try {
+        const items = [];
+        for (let i = 0; i < count; i++) {
+          let catInfo;
+          if (catFile) {
+            catInfo = index.categories.find(c => c.file === catFile);
+          } else {
+            catInfo = weightedPick(index.categories, c => c.count);
+          }
+          const catData = await loadJSON(`${DATA_BASE}/Motifs/${catInfo.file}`);
+          items.push(pickMotif(catData));
+        }
+        renderResults($("motif-results"), $("motif-copyall"), items);
+      } catch (e) {
+        $("motif-results").innerHTML = `<p class="error">Error: ${e.message}</p>`;
+      }
+    });
+  }
+
+  function pickMotif(catData) {
+    const sg = weightedPick(catData.subgroups, s => s.motifs.length);
+    const motif = pick(sg.motifs);
+    const ref = `Stith Thompson, Motif-Index \u2014 ${motif.id}`;
+
+    const expand = [];
+    const details = [];
+    if (motif.detail) details.push(motif.detail);
+    if (motif.locations && motif.locations.length > 0) {
+      details.push("Locations: " + motif.locations.join(", "));
+    }
+    if (motif.refs) details.push("References: " + motif.refs);
+
+    if (details.length > 0) {
+      expand.push({ label: "Details", text: details.join("\n\n") });
+    }
+
+    return {
+      text: motif.description,
+      ref: ref,
+      expand: expand.length > 0 ? expand : undefined
+    };
+  }
+
+  // =====================================================================
   // STANDALONE PICK FUNCTIONS (for quote hero)
   // =====================================================================
 
@@ -575,6 +634,13 @@
     return pickClassics(workData);
   }
 
+  async function pickRandomMotif() {
+    const index = await loadJSON(`${DATA_BASE}/Motifs/index.json`);
+    const catInfo = weightedPick(index.categories, c => c.count);
+    const catData = await loadJSON(`${DATA_BASE}/Motifs/${catInfo.file}`);
+    return pickMotif(catData);
+  }
+
   // =====================================================================
   // QUOTE HERO — random quote + one of each
   // =====================================================================
@@ -583,12 +649,13 @@
     const resultsDiv = $("quote-results");
     const copyAllBtn = $("quote-copyall");
     try {
-      const source = pick(["bible", "shakespeare", "poetry", "classics"]);
+      const source = pick(["bible", "shakespeare", "poetry", "classics", "motifs"]);
       let item;
       if (source === "bible") item = await pickRandomBible();
       else if (source === "shakespeare") item = await pickRandomShakespeare();
       else if (source === "poetry") item = await pickRandomPoetry();
-      else item = await pickRandomClassics();
+      else if (source === "classics") item = await pickRandomClassics();
+      else item = await pickRandomMotif();
       renderResults(resultsDiv, copyAllBtn, [item]);
     } catch (e) {
       resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
@@ -599,13 +666,14 @@
     const resultsDiv = $("quote-results");
     const copyAllBtn = $("quote-copyall");
     try {
-      const [bible, shk, poetry, classics] = await Promise.all([
+      const [bible, shk, poetry, classics, motif] = await Promise.all([
         pickRandomBible(),
         pickRandomShakespeare(),
         pickRandomPoetry(),
-        pickRandomClassics()
+        pickRandomClassics(),
+        pickRandomMotif()
       ]);
-      renderResults(resultsDiv, copyAllBtn, [bible, shk, poetry, classics]);
+      renderResults(resultsDiv, copyAllBtn, [bible, shk, poetry, classics, motif]);
     } catch (e) {
       resultsDiv.innerHTML = `<p class="error">Error: ${e.message}</p>`;
     }
@@ -619,6 +687,7 @@
   initShakespeare();
   initPoetry();
   initClassics();
+  initMotifs();
 
   $("quote-reload").addEventListener("click", loadRandomQuote);
   $("quote-each").addEventListener("click", loadOneOfEach);

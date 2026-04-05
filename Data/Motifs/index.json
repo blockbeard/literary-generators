@@ -1,0 +1,144 @@
+{
+  "title": "Motif-Index of Folk-Literature",
+  "author": "Stith Thompson",
+  "categories": [
+    {
+      "letter": "A",
+      "name": "Mythological Motifs",
+      "file": "a.json",
+      "count": 5814
+    },
+    {
+      "letter": "B",
+      "name": "Animals",
+      "file": "b.json",
+      "count": 2672
+    },
+    {
+      "letter": "C",
+      "name": "Tabu",
+      "file": "c.json",
+      "count": 1247
+    },
+    {
+      "letter": "D",
+      "name": "Magic",
+      "file": "d.json",
+      "count": 7169
+    },
+    {
+      "letter": "E",
+      "name": "The Dead",
+      "file": "e.json",
+      "count": 2223
+    },
+    {
+      "letter": "F",
+      "name": "Marvels",
+      "file": "f.json",
+      "count": 5365
+    },
+    {
+      "letter": "G",
+      "name": "Ogres",
+      "file": "g.json",
+      "count": 1745
+    },
+    {
+      "letter": "H",
+      "name": "Tests",
+      "file": "h.json",
+      "count": 2751
+    },
+    {
+      "letter": "J",
+      "name": "The Wise and the Foolish",
+      "file": "j.json",
+      "count": 3521
+    },
+    {
+      "letter": "K",
+      "name": "Deceptions",
+      "file": "k.json",
+      "count": 3873
+    },
+    {
+      "letter": "L",
+      "name": "Reversal of Fortune",
+      "file": "l.json",
+      "count": 317
+    },
+    {
+      "letter": "M",
+      "name": "Ordaining the Future",
+      "file": "m.json",
+      "count": 851
+    },
+    {
+      "letter": "N",
+      "name": "Chance and Fate",
+      "file": "n.json",
+      "count": 1011
+    },
+    {
+      "letter": "P",
+      "name": "Society",
+      "file": "p.json",
+      "count": 849
+    },
+    {
+      "letter": "Q",
+      "name": "Rewards and Punishments",
+      "file": "q.json",
+      "count": 1511
+    },
+    {
+      "letter": "R",
+      "name": "Captives and Fugitives",
+      "file": "r.json",
+      "count": 509
+    },
+    {
+      "letter": "S",
+      "name": "Unnatural Cruelty",
+      "file": "s.json",
+      "count": 533
+    },
+    {
+      "letter": "T",
+      "name": "Sex",
+      "file": "t.json",
+      "count": 1500
+    },
+    {
+      "letter": "U",
+      "name": "The Nature of Life",
+      "file": "u.json",
+      "count": 169
+    },
+    {
+      "letter": "V",
+      "name": "Religion",
+      "file": "v.json",
+      "count": 1051
+    },
+    {
+      "letter": "W",
+      "name": "Traits of Character",
+      "file": "w.json",
+      "count": 369
+    },
+    {
+      "letter": "X",
+      "name": "Humor",
+      "file": "x.json",
+      "count": 751
+    },
+    {
+      "letter": "Z",
+      "name": "Miscellaneous Groups of Motifs",
+      "file": "z.json",
+      "count": 443
+    }
+  ]
+}
