@@ -1,10 +1,9 @@
 name: Update blog posts
 
 on:
-  repository_dispatch:
-    types: [blog-published]
-  schedule:
-    - cron: '0 7 * * *'   # daily fallback in case the dispatch is missed
+  push:
+    branches: [main]
+    paths: ['_data/blog-feed.xml']
   workflow_dispatch:
 
 permissions:

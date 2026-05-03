@@ -1,14 +1,18 @@
 #!/usr/bin/env node
-// Refresh the "From the Blog" list in index.html from the live RSS feed.
-// No deps — uses Node 20+ built-in fetch and a tiny regex parser.
+// Refresh the "From the Blog" list in index.html from a committed RSS snapshot.
+// The snapshot at _data/blog-feed.xml is pushed in by the blog server
+// (Prometheus) after each Quartz build, so we never have to fetch through
+// Cloudflare. No deps — built-in fs + regex.
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
-const FEED_URL = "https://blog.wormlikechain.com/index.xml";
 const POST_COUNT = 5;
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const FEED_PATH = process.env.BLOG_FEED_PATH
+  ? resolve(process.env.BLOG_FEED_PATH)
+  : resolve(REPO_ROOT, "_data/blog-feed.xml");
 const HTML_PATH = resolve(REPO_ROOT, "index.html");
 const START = "<!-- BLOG_POSTS:START -->";
 const END = "<!-- BLOG_POSTS:END -->";
@@ -35,15 +39,13 @@ const formatDate = (rfc822) => {
   return d.toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 };
 
-const res = await fetch(FEED_URL, {
-  headers: {
-    "User-Agent":
-      "literary-generators-updater/1.0 (+https://github.com/blockbeard/literary-generators)",
-    Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-  },
-});
-if (!res.ok) throw new Error(`Feed fetch failed: ${res.status} ${res.statusText}`);
-const xml = await res.text();
+if (!existsSync(FEED_PATH)) {
+  throw new Error(
+    `Feed snapshot not found at ${FEED_PATH}. ` +
+      `Expected the blog server to PUT it via the GitHub Contents API after each Quartz build.`,
+  );
+}
+const xml = readFileSync(FEED_PATH, "utf8");
 
 const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)]
   .slice(0, POST_COUNT)
