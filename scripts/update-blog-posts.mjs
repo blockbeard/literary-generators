@@ -35,7 +35,13 @@ const formatDate = (rfc822) => {
   return d.toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 };
 
-const res = await fetch(FEED_URL);
+const res = await fetch(FEED_URL, {
+  headers: {
+    "User-Agent":
+      "literary-generators-updater/1.0 (+https://github.com/blockbeard/literary-generators)",
+    Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+  },
+});
 if (!res.ok) throw new Error(`Feed fetch failed: ${res.status} ${res.statusText}`);
 const xml = await res.text();
 
